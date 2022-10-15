@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static PlayerManager Instance;
+    //public PlayerMovement player;
+    //public HealthBar healthBar;
+    //public static EnemyRadius enemy;
+    //private HealthSystem healthSystem;
 
-    HealthSystem healthSystem = new HealthSystem(100);
 
-    void Awake()
-    {
-        Instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        healthBar.Setup(healthSystem);
-    }
+    //void GameOver()
+    //{
+    //    Debug.Log("Dead");
+    //}
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+    
 }

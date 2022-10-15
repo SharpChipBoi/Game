@@ -6,9 +6,12 @@ using System;
 public class HealthSystem
 {
     public event EventHandler OnHealthChanged;
+
     private int health;
     private int healthMax;
-    public HealthSystem(int health)
+    public bool isGameOver = false;
+
+    public HealthSystem(int healthMax)
     {
         this.healthMax = healthMax;
         health = healthMax;
@@ -27,7 +30,11 @@ public class HealthSystem
     public void Damage(int damageAmount)
     {
         health -= damageAmount;
-        if (health < 0) health = 0;
+        if (health < 0)
+        {
+            health = 0;
+            isGameOver = true;
+        }
         if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
     }
     public void Heal(int healAmount)

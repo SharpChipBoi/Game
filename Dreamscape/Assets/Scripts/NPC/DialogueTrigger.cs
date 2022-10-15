@@ -40,6 +40,7 @@ public class DialogueTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hello");
         if (other.CompareTag("NPC"))
         {
             currentNpc = other.GetComponent<NPCScript>();
@@ -54,7 +55,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             currentNpc = null;
             ui.currentNpc = currentNpc;
-            interactButton.SetActive(false);
+            interactButton.SetActive(true);
         }
     }
 

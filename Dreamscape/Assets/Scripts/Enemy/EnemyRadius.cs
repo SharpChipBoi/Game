@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
 public class EnemyRadius : MonoBehaviour
-{
-    public HealthBar healthBar;
-    private HealthSystem healthSystem = new HealthSystem(100);
+{   
     public float lookRadius = 10f;
     public GameObject player;
-    public int damageAmount = 15;
+    public int damageAmount = 100;
     public float attackRange = 1.5f;
+    public HealthSystem healthSystem;
+    public bool isAttacking;
+    public HealthBar healthBar;
 
     Transform target;
     NavMeshAgent agent;
@@ -18,8 +20,9 @@ public class EnemyRadius : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthSystem = new HealthSystem(100);
         healthBar.Setup(healthSystem);
-
+        Debug.Log(healthSystem.GetHealth());
         target = player.transform;
         agent = GetComponent<NavMeshAgent>(); 
     }
@@ -35,19 +38,33 @@ public class EnemyRadius : MonoBehaviour
             agent.SetDestination(target.position);
             if (distance < attackRange)
             {
+                isAttacking = true;
                 agent.velocity = Vector3.zero;
+            }
+            else isAttacking = false;
+        }
+        if (healthSystem.isGameOver)
+        {
+            SceneManager.LoadScene("Customization");
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (isAttacking)
+            {
+                healthSystem.Damage(damageAmount);
+                Debug.Log(healthSystem.GetHealthPercent());
             }
         }
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerExit(Collider other)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, attackRange);
-        foreach(Collider objectNear in colliders)
+        if (other.CompareTag("Player"))
         {
-            if(objectNear.tag == "Player")
-            {
-                HealthSystem.Damage(damageAmount);
-            }
+            isAttacking = false;
         }
     }
 

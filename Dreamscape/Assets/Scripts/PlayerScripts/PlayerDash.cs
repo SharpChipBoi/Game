@@ -23,7 +23,7 @@ public class PlayerDash : MonoBehaviour
         { 
             if (Input.GetButtonDown("Dash"))
             {
-                StartCoroutine(dash());
+                StartCoroutine(Dash());
             }
         }
         else 
@@ -32,7 +32,7 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
-    IEnumerator dash()
+    IEnumerator Dash()
     {
         float startTime = Time.time;
 
