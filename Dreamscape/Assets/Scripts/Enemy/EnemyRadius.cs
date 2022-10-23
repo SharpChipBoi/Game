@@ -8,7 +8,7 @@ public class EnemyRadius : MonoBehaviour
 {   
     public float lookRadius = 10f;
     public GameObject player;
-    public int damageAmount = 100;
+    public int damageAmount = 20;
     public float attackRange = 1.5f;
     public HealthSystem healthSystem;
     public bool isAttacking;
@@ -55,7 +55,7 @@ public class EnemyRadius : MonoBehaviour
             if (isAttacking)
             {
                 healthSystem.Damage(damageAmount);
-                Debug.Log(healthSystem.GetHealthPercent());
+                Debug.Log(healthSystem.GetHealth());
             }
         }
     }

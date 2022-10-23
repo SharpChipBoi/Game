@@ -7,7 +7,7 @@ public class Equipment : ItemInteract
 {
     public EquipmentSlot equipSlot;
     public SkinnedMeshRenderer mesh;
-    public EquipmentMeshRegion[] coveredMeshRegions; // blend shapes
+    //public EquipmentMeshRegion[] coveredMeshRegions; // blend shapes
 
     public int armorModifier;
     public int damageModifier;
@@ -21,5 +21,5 @@ public class Equipment : ItemInteract
 
 }
 
-public enum EquipmentSlot { Head, Body, Weapon }
-public enum EquipmentMeshRegion { Torso, Head };
+public enum EquipmentSlot { Body, Head, Weapon }
+//public enum EquipmentMeshRegion { Body, Head };

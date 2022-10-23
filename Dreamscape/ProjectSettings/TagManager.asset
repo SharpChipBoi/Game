@@ -22,8 +22,8 @@ TagManager:
   - 
   - Ground
   - 
-  - 
-  - 
+  - HB
+  - Ebutton
   - 
   - 
   - 
@@ -50,4 +50,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4045339681
+    locked: 0
+  - name: HB
+    uniqueID: 1254940221
+    locked: 0
+  - name: Ebutton
+    uniqueID: 712742153
     locked: 0

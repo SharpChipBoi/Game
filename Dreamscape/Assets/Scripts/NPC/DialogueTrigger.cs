@@ -20,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
     void Start()
     {
         ui = DialogueManager.instance;
+        interactButton.SetActive(false);
         movement = GetComponent<PlayerMovement>();
     }
 
@@ -40,7 +41,6 @@ public class DialogueTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hello");
         if (other.CompareTag("NPC"))
         {
             currentNpc = other.GetComponent<NPCScript>();
@@ -53,9 +53,10 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.CompareTag("NPC"))
         {
+
             currentNpc = null;
             ui.currentNpc = currentNpc;
-            interactButton.SetActive(true);
+            interactButton.SetActive(false);
         }
     }
 

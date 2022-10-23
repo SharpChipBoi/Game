@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml;
 
 public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager instance;
 
+    public ItemInteract item;
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
 
 
     InventoryPl inventory;
+
 
     private void Awake()
     {
@@ -19,6 +22,7 @@ public class EquipmentManager : MonoBehaviour
 
     public Equipment[] defaultItems;
     public SkinnedMeshRenderer targetMesh;
+
     Equipment[] currentEquipment;
     SkinnedMeshRenderer[] currentMeshes;
     private void Start()
@@ -71,6 +75,14 @@ public class EquipmentManager : MonoBehaviour
         return null;
     }
 
+    void EquipDefaultItems()
+    {
+        foreach (Equipment item in defaultItems)
+        {
+            Equip(item);
+        }
+    }
+
     public void UnequipAll()
     {
         for(int i = 0; i < currentEquipment.Length; i++)
@@ -80,13 +92,6 @@ public class EquipmentManager : MonoBehaviour
         EquipDefaultItems();
     }
 
-    void EquipDefaultItems()
-    {
-        foreach(Equipment item in defaultItems)
-        {
-            Equip(item);
-        }
-    }
 
     void Update()
     {
@@ -94,6 +99,11 @@ public class EquipmentManager : MonoBehaviour
         {
             UnequipAll();
         }
+    }
+
+    public void OnDestroy()
+    {
+        PlayerPrefs.SetString("saveGame", myXml);
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public UI_Inventory uiInventory;
+    UI_Inventory uiInventory;
     public CharacterController controller;
 
     public float speed = 6f;
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private Inventory inventory;
 
     private bool isShowing;
-    public GameObject inventoryUi;
+    GameObject inventoryUi;
 
     private void Start()
     {
