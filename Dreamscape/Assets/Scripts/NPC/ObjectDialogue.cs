@@ -8,4 +8,7 @@ public class ObjectDialogue : ScriptableObject
 {
     [TextArea(4, 4)]
     public List<string> conversationBlock;
+
+    public ObjectDialogue nextConversation;
+    public Question question;
 }

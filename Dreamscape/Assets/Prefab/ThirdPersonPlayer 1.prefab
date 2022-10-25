@@ -414,7 +414,6 @@ GameObject:
   - component: {fileID: 2274076785749912296}
   - component: {fileID: 2274076785749912299}
   - component: {fileID: 2274076785749912298}
-  - component: {fileID: 2274076785749912292}
   - component: {fileID: 2274076785749912301}
   - component: {fileID: 2274076785749912295}
   m_Layer: 0
@@ -473,7 +472,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b5187d736952b489270a88abbd9fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiInventory: {fileID: 0}
   controller: {fileID: 2274076785749912297}
   speed: 4
   gravity: -12
@@ -489,7 +487,6 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   active: 1
   animator: {fileID: 1504539500865659844}
-  inventoryUi: {fileID: 0}
 --- !u!114 &2274076785749912299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,20 +517,6 @@ MonoBehaviour:
   targetGroup: {fileID: 0}
   interactButton: {fileID: 2274076786107840204}
   dialogueDof: {fileID: 0}
---- !u!114 &2274076785749912292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2274076785749912300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f486396cfd695b64e9104dbf40cc7a83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: {fileID: 0}
-  armor: {fileID: 0}
 --- !u!65 &2274076785749912301
 BoxCollider:
   m_ObjectHideFlags: 0

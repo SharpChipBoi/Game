@@ -7,7 +7,6 @@ public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager instance;
 
-    public ItemInteract item;
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
 
@@ -101,9 +100,5 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
-    public void OnDestroy()
-    {
-        PlayerPrefs.SetString("saveGame", myXml);
-    }
 
 }

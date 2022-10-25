@@ -33,16 +33,16 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
-    private Inventory inventory;
+    //private Inventory inventory;
 
     private bool isShowing;
     GameObject inventoryUi;
 
-    private void Start()
-    {
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
-    }
+    //private void Start()
+    //{
+    //    inventory = new Inventory();
+    //    uiInventory.SetInventory(inventory);
+    //}
 
     // Update is called once per frame
     void Update()

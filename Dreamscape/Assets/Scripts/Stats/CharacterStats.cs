@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+
+[System.Serializable]
+public class CharacterStats
 {
-    public Stats damage;
-    public Stats armor;
-    private HealthSystem healthSystem;
+
+    //public int SceneID;
+    public GameObject inventoryUI;
+    //public HealthSystem health;
+    //public HealthBar healthBar;
+
 }

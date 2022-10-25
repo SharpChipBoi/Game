@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c85521c45868cf47bb58623722f3ccf, type: 3}
+  m_Name: Attack Configuration
+  m_EditorClassIdentifier: 
+  IsRanged: 1
+  Damage: 5
+  AttackRadius: 1.5
+  AttackDelay: 1.5
+  BulletPrefab: {fileID: 577321635484024887, guid: b551462df121dbe46b60873e194dd8ba,
+    type: 3}
+  BulletSpawnOffset: {x: 0, y: 1, z: 0}
+  LineOfSightLayers:
+    serializedVersion: 2
+    m_Bits: 4097

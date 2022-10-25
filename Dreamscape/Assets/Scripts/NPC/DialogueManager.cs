@@ -5,14 +5,19 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 using Cinemachine;
 
 
+public class QuestionEvent : UnityEvent<Question> { }
 public class DialogueManager : MonoBehaviour
 {
     public bool inDialogue;
 
     public static DialogueManager instance;
+
+
+    public ObjectDialogue conversation;
 
     public CanvasGroup canvasGroup;
     public TMP_Animated animatedText;
@@ -37,6 +42,8 @@ public class DialogueManager : MonoBehaviour
     [Space]
 
     public Volume dialogueDof;
+
+    public QuestionEvent questionEvent;
 
 
     private void Awake()
@@ -66,9 +73,27 @@ public class DialogueManager : MonoBehaviour
             {
                 animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
             }
+            else
+            {
+                AdvanceConversation();
+            }
         }
     }
-
+    private void AdvanceConversation()
+    {
+        // These are really three types of dialog tree node
+        // and should be three different objects with a standard interface
+        if (conversation.question != null)
+        {
+            Debug.Log(questionEvent == null);
+            Debug.Log(questionEvent);
+            questionEvent.Invoke(conversation.question);
+        }
+        else if (conversation.nextConversation != null)
+            animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
+        else
+            FinishDialogue();
+    }
     public void FadeUI(bool show, float time, float delay)
     {
         Sequence s = DOTween.Sequence();

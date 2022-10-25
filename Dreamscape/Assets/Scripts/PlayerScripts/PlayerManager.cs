@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    //public PlayerMovement player;
-    //public HealthBar healthBar;
-    //public static EnemyRadius enemy;
-    //private HealthSystem healthSystem;
+	public static PlayerManager Instance;
 
+	public Transform playerPosition;
 
-    //void GameOver()
-    //{
-    //    Debug.Log("Dead");
-    //}
+	//TUTORIAL
+	public CharacterStats localPlayerData = new CharacterStats();
 
-    // Update is called once per frame
-    void Update()
-    {
+	void Awake()
+	{
+		if (Instance == null)
+			Instance = this;
 
-    }
-    
+		if (Instance != this)
+			Destroy(gameObject);
+
+		GlobalControl.Instance.Player = gameObject;
+	}
+	public void SavePlayer()
+	{
+		GlobalControl.Instance.savedPlayerData = localPlayerData;
+	}
+	void Start()
+	{
+		localPlayerData = GlobalControl.Instance.savedPlayerData;
+	}
 }

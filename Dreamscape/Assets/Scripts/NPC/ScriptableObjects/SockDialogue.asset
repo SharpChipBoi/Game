@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SockDialogue
   m_EditorClassIdentifier: 
   conversationBlock:
-  - <speed=30>Hello, Keppe!
-  - <speed=30>How, are you?
+  - <speed=30>Hello, Keppe! How, are you?
+  question: {fileID: 11400000, guid: 27cfbf9b14cef694182b0d3c0b88a864, type: 2}

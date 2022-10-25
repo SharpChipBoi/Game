@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyNevMesh : MonoBehaviour
 {
+
+    public Transform Player;
     public NavMeshAgent agent;
     public float range; //radius of sphere
 
@@ -19,16 +21,7 @@ public class EnemyNevMesh : MonoBehaviour
 
     void Update()
     {
-        if (agent.remainingDistance <= agent.stoppingDistance) //done with path
-        {
-            Vector3 point;
-            if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
-            {
-                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); // can see with gizmos
-                agent.SetDestination(point);
-            }
-        }
-
+        StartChasing();
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
@@ -45,5 +38,17 @@ public class EnemyNevMesh : MonoBehaviour
 
         result = Vector3.zero;
         return false;
+    }
+    public void StartChasing()
+    {
+        if (agent.remainingDistance <= agent.stoppingDistance) //done with path
+        {
+            Vector3 point;
+            if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
+            {
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); // can see with gizmos
+                agent.SetDestination(point);
+            }
+        }
     }
 }
