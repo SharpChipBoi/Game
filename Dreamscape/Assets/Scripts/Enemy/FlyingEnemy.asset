@@ -26,4 +26,4 @@ MonoBehaviour:
   ObstacleAvoidanceType: 1
   Radius: 0.5
   Speed: 3
-  StoppingDistance: 0.5
+  StoppingDistance: 3

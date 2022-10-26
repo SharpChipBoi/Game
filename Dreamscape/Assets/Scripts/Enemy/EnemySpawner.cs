@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public float SpawnDelay = 0f;
     public List<EnemyScriptableObject> Enemies = new List<EnemyScriptableObject>();
     public SpawnMethod EnemySpawnMethod = SpawnMethod.RoundRobin;
+    public EnemyMovement movement;
 
     private NavMeshTriangulation Triangulation;
     private Dictionary<int, ObjectPool> EnemyObjectPools = new Dictionary<int, ObjectPool>();
@@ -80,9 +81,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 enemy.Agent.Warp(Hit.position);
                 // enemy needs to get enabled and start chasing now.
-                enemy.Movement.Player = Player;
+                movement.Player = Player;
                 enemy.Agent.enabled = true;
-                enemy.Movement.StartChasing();
+                movement.StartChasing();
             }
             else
             {

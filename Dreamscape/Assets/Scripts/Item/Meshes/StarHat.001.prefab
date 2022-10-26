@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2216878838814946890}
-  - component: {fileID: 8238418742770193067}
-  - component: {fileID: -4194402995688334746}
+  - component: {fileID: -6458221943920259309}
   m_Layer: 0
   m_Name: StarHat.001
   m_TagString: Untagged
@@ -25,22 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3429311083363701058}
-  m_LocalRotation: {x: -0.7935751, y: 0.017368004, z: -0.00895462, w: 0.60815847}
-  m_LocalPosition: {x: 0.05076777, y: 5.3027406, z: 1.073621}
-  m_LocalScale: {x: 99.99999, y: 100.00001, z: 99.99999}
+  m_LocalRotation: {x: -0.8491772, y: 0.006554333, z: -0.004076019, w: 0.5280517}
+  m_LocalPosition: {x: 0.0032261114, y: 5.407543, z: -0.5756768}
+  m_LocalScale: {x: 100, y: 99.99999, z: 99.999985}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8238418742770193067
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3429311083363701058}
-  m_Mesh: {fileID: -3319344463730638045, guid: 10745c7ca8d1aab4da8bb69d5c1d2d34, type: 3}
---- !u!137 &-4194402995688334746
+--- !u!137 &-6458221943920259309
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,10 +75,27 @@ SkinnedMeshRenderer:
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -3319344463730638045, guid: 10745c7ca8d1aab4da8bb69d5c1d2d34, type: 3}
-  m_Bones: []
+  m_Bones:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
-  m_DirtyAABB: 1
+    m_Center: {x: 0.0010516839, y: 0.035028648, z: -0.012983946}
+    m_Extent: {x: 0.011199849, y: 0.017536003, z: 0.020299232}
+  m_DirtyAABB: 0

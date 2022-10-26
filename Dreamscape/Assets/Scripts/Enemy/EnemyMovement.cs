@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     private AgentLinkMover LinkMover;
     [SerializeField]
     private Animator Animator = null;
+    public bool isInRange;
 
     private const string IsWalking = "IsWalking";
     private const string Jump = "Jump";
@@ -26,19 +27,42 @@ public class EnemyMovement : MonoBehaviour
         LinkMover.OnLinkStart += HandleLinkStart;
         LinkMover.OnLinkEnd += HandleLinkEnd;
     }
-
+    void Update()
+    {
+        Animator.SetBool(IsWalking, Agent.velocity.magnitude > 0.01f);
+    }
     public void StartChasing()
     {
-        if (FollowCoroutine == null)
+        if (isInRange)
         {
-            FollowCoroutine = StartCoroutine(FollowTarget());
-        }
-        else
-        {
-            Debug.LogWarning("Called StartChasing on Enemy that is already chasing! This is likely a bug in some calling class!");
+            if (FollowCoroutine == null)
+            {
+                FollowCoroutine = StartCoroutine(FollowTarget());
+            }
+            else
+            {
+                Debug.LogWarning("Called StartChasing on Enemy that is already chasing! This is likely a bug in some calling class!");
+            }
+
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        isInRange = true;
+        if (other.CompareTag("Player"))
+        {
+            StartChasing();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isInRange = false;
+        }
+        
+    }
     private IEnumerator FollowTarget()
     {
         WaitForSeconds Wait = new WaitForSeconds(UpdateRate);
@@ -61,10 +85,5 @@ public class EnemyMovement : MonoBehaviour
     private void HandleLinkEnd()
     {
         Animator.SetTrigger(Landed);
-    }
-
-    private void Update()
-    {
-        Animator.SetBool(IsWalking, Agent.velocity.magnitude > 0.01f);
     }
 }
