@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Hat
   icon: {fileID: 0}
-  isDefaultItem: 0
+  isDefaultItem: 1
   equipSlot: 1
   mesh: {fileID: 7132926003154170334, guid: 47751cf04c2079c44a0a727b992fe79a, type: 3}
   armorModifier: 0

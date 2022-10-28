@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: StarHat
   icon: {fileID: 21300000, guid: 183aac318b7d2f943a80d244b8440e49, type: 3}
-  isDefaultItem: 1
+  isDefaultItem: 0
   equipSlot: 1
   mesh: {fileID: 7930581060355470033, guid: 8f43b35483ba7d547807c1118e2d0e1a, type: 3}
   armorModifier: 0

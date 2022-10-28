@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Dress
   icon: {fileID: 0}
-  isDefaultItem: 0
+  isDefaultItem: 1
   equipSlot: 0
   mesh: {fileID: 395649724525869802, guid: 6ec00eda64a1b794aa5190739ceee394, type: 3}
   armorModifier: 0
