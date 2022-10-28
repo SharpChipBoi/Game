@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94fa70167919574fbdaeccae8db9202, type: 3}
   m_Name: Dress
   m_EditorClassIdentifier: 
-  name: Hat
+  name: Dress
   icon: {fileID: 0}
-  isDefaultItem: 1
+  isDefaultItem: 0
   equipSlot: 0
-  mesh: {fileID: 3563904910487165267, guid: a9b56d5cfa627b5418024db567e23ad6, type: 3}
-  coveredMeshRegions: 00000000
+  mesh: {fileID: 395649724525869802, guid: 6ec00eda64a1b794aa5190739ceee394, type: 3}
   armorModifier: 0
   damageModifier: 0
