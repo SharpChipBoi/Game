@@ -351,12 +351,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &169296270 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6509569257860012780, guid: 366002dafab0bed478b4f0f1b76b75c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 2274076785088545182}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &172637008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,7 +2572,7 @@ MonoBehaviour:
   defaultItems:
   - {fileID: 11400000, guid: 084129005cbaea74f9de46aa719f64be, type: 2}
   - {fileID: 11400000, guid: a3b3ed105ff48f04891b69e11eda8ae7, type: 2}
-  targetMesh: {fileID: 169296270}
+  targetMesh: {fileID: 2057239657}
 --- !u!1 &1247907081
 GameObject:
   m_ObjectHideFlags: 0
@@ -4161,12 +4155,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1914784056 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7491817747663558612, guid: 366002dafab0bed478b4f0f1b76b75c7,
-    type: 3}
-  m_PrefabInstance: {fileID: 2274076785088545182}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1949537186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -466329591000292508, guid: f8d865874f34a8d4baf63b95ab9473ef,
@@ -4358,6 +4346,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980365698}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!137 &2057239657 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3608375008418085620, guid: 366002dafab0bed478b4f0f1b76b75c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2274076785088545182}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2088605478
 GameObject:
   m_ObjectHideFlags: 0
@@ -4416,7 +4410,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088605478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.639954, y: 3.1697693, z: 19.780003}
+  m_LocalPosition: {x: 22.72, y: 3.1697693, z: 20.31}
   m_LocalScale: {x: 1, y: 1.9800001, z: 1}
   m_Children:
   - {fileID: 1980365699}
@@ -4491,7 +4485,7 @@ MonoBehaviour:
   maxHealth:
     baseVal: 40
   damage:
-    baseVal: 11
+    baseVal: 15
   armor:
     baseVal: 0
 --- !u!114 &2088605488
@@ -4506,7 +4500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0401405960b62504aa7aed1f5cb79f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.14
+  radius: 1.4
   interactionTransform: {fileID: 2088605481}
   player: {fileID: 700427128}
 --- !u!114 &2088605489
@@ -4778,11 +4772,6 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1696972765}
-    - target: {fileID: 2274076785749912296, guid: 366002dafab0bed478b4f0f1b76b75c7,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1914784056}
     - target: {fileID: 2274076785749912296, guid: 366002dafab0bed478b4f0f1b76b75c7,
         type: 3}
       propertyPath: inventoryUi
@@ -5508,7 +5497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d39282d536ed2409c7f59dc3295195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  savedPlayerData: {fileID: 0}
+  savedPlayerData: {fileID: 700427123}
   Player: {fileID: 700427122}
 --- !u!1001 &7556354646051787481
 PrefabInstance:

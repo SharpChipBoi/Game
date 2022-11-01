@@ -31,10 +31,7 @@ public class CharacterStats: MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            if (OnHealthReachedZero != null)
-            {
-                OnHealthReachedZero();
-            }
+            Die();
         }
     }
     public void Heal(int healAmount)

@@ -5,10 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class Enemy : Interactable
 {
+	PlayerManager playerManager;
 	CharacterStats stats;
 
 	void Start()
 	{
+		playerManager = PlayerManager.Instance;
 		stats = GetComponent<CharacterStats>();
 		stats.OnHealthReachedZero += Die;
 	}
@@ -17,8 +19,12 @@ public class Enemy : Interactable
 	public override void Interact()
 	{
 		print("Interact");
-		CharacterCombat combatManager = Player.instance.playerCombatManager;
-		combatManager.Attack(stats);
+		CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
+		if(playerCombat != null)
+        {
+			playerCombat.Attack(stats);
+		}
+		
 	}
 
 	void Die()

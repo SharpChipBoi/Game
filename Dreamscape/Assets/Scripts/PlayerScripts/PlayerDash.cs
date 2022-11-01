@@ -9,6 +9,10 @@ public class PlayerDash : MonoBehaviour
     public float dashSpeed;
     public float dashTime;
     public float dashCD;
+
+
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +27,13 @@ public class PlayerDash : MonoBehaviour
         { 
             if (Input.GetButtonDown("Dash"))
             {
+                animator.SetBool("isSprinting", true);
                 StartCoroutine(Dash());
             }
         }
         else 
-        { 
+        {
+            animator.SetBool("isSprinting", false);
             dashCD -= Time.deltaTime;
         }
     }

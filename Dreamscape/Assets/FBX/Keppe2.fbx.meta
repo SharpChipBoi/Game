@@ -15,6 +15,21 @@ ModelImporter:
   - first:
       74: -3959375944613509888
     second: T-pose
+  - first:
+      74: 7664120462568309158
+    second: Jump.001
+  - first:
+      74: 5917537482288442099
+    second: Fall
+  - first:
+      74: -643137676460747808
+    second: AttackIdle
+  - first:
+      74: 6720303635017113406
+    second: Attack
+  - first:
+      74: -2341027594253812581
+    second: Roll
   externalObjects: {}
   materials:
     materialImportMode: 1
