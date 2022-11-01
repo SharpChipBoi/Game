@@ -4,41 +4,57 @@ using UnityEngine;
 
 public class InventoryPl: MonoBehaviour
 {
-    public delegate void OnItemChanged();
-    public OnItemChanged onItemChangedCallBack;
+
+    #region Singleton
 
     public static InventoryPl instance;
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than one instance of Inventory found!");
+            return;
+        }
+
+        instance = this;
+    }
+
+    #endregion
+
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
 
     public int space = 12;
 
     public List<ItemInteract> items;
 
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.LogWarning("Aaa");
-            return;
-        }
-        instance = this;
-    }
     public bool AddItem(ItemInteract item)
     {
-        if(items.Count >= space)
+        // Don't do anything if it's a default item
+        if (!item.isDefaultItem)
         {
-            Debug.Log("not enough room");
-            return false;
+            // Check if out of space
+            if (items.Count >= space)
+            {
+                Debug.Log("Not enough room.");
+                return false;
+            }
+
+            items.Add(item);    // Add item to list
+
+            // Trigger callback
+            if (onItemChangedCallback != null)
+                onItemChangedCallback.Invoke();
         }
-        items.Add(item);
-        if (onItemChangedCallBack != null)
-            onItemChangedCallBack.Invoke();
+
         return true;
     }
     public void Remove(ItemInteract item)
     {
         items.Remove(item);
-        if (onItemChangedCallBack != null)
-            onItemChangedCallBack.Invoke();
+        if (onItemChangedCallback != null)
+            onItemChangedCallback.Invoke();
 
     }
 

@@ -4,20 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
-public class EnemyRadius : MonoBehaviour
-{   
+public class EnemyController : MonoBehaviour
+{
     public float lookRadius = 10f;
+    public GameObject player;
+    public bool isAttacking;
 
     Transform target;
     NavMeshAgent agent;
-    CharacterCombat combat;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerManager.Instance.player.transform;
+        target = player.transform;
         agent = GetComponent<NavMeshAgent>();
-        combat = GetComponent<CharacterCombat>();
     }
 
     // Update is called once per frame
@@ -31,13 +31,10 @@ public class EnemyRadius : MonoBehaviour
             agent.SetDestination(target.position);
             if (distance <= agent.stoppingDistance)
             {
-                CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                if(targetStats != null)
-                {
-                    combat.Attack(targetStats);
-                }
+                isAttacking = true;
                 FaceTarget();
             }
+            else isAttacking = false;
         }
     }
 
@@ -49,10 +46,6 @@ public class EnemyRadius : MonoBehaviour
     }
 
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
 
-    }
+
 }

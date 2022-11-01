@@ -1,70 +1,28 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class Enemy : PoolableObject, IDamageable
+[RequireComponent(typeof(CharacterStats))]
+public class Enemy : Interactable
 {
-    public AttackRadius AttackRadius;
-    public Animator Animator;
-    public EnemyNevMesh Movement;
-    public NavMeshAgent Agent;
-    public int Health = 100;
+	CharacterStats stats;
 
-    private Coroutine LookCoroutine;
-    private const string ATTACK_TRIGGER = "Attack";
+	void Start()
+	{
+		stats = GetComponent<CharacterStats>();
+		stats.OnHealthReachedZero += Die;
+	}
 
-    private void Awake()
-    {
-        AttackRadius.OnAttack += OnAttack;
-    }
+	// When we interact with the enemy: We attack it.
+	public override void Interact()
+	{
+		print("Interact");
+		CharacterCombat combatManager = Player.instance.playerCombatManager;
+		combatManager.Attack(stats);
+	}
 
-    private void OnAttack(IDamageable Target)
-    {
-        Animator.SetTrigger(ATTACK_TRIGGER);
-
-        if (LookCoroutine != null)
-        {
-            StopCoroutine(LookCoroutine);
-        }
-
-        LookCoroutine = StartCoroutine(LookAt(Target.GetTransform()));
-    }
-
-    private IEnumerator LookAt(Transform Target)
-    {
-        Quaternion lookRotation = Quaternion.LookRotation(Target.position - transform.position);
-        float time = 0;
-
-        while (time < 1)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, time);
-
-            time += Time.deltaTime * 2;
-            yield return null;
-        }
-
-        transform.rotation = lookRotation;
-    }
-
-    public override void OnDisable()
-    {
-        base.OnDisable();
-
-        Agent.enabled = false;
-    }
-
-    public void TakeDamage(int Damage)
-    {
-        Health -= Damage;
-
-        if (Health <= 0)
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-    public Transform GetTransform()
-    {
-        return transform;
-    }
+	void Die()
+	{
+		Destroy(gameObject);
+	}
 }

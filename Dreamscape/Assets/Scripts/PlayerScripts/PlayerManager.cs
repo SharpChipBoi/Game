@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
 	public static PlayerManager Instance;
 
 	public Transform playerPosition;
+	public GameObject player;
 
 	//TUTORIAL
 	public CharacterStats localPlayerData = new CharacterStats();
@@ -29,4 +31,10 @@ public class PlayerManager : MonoBehaviour
 	{
 		localPlayerData = GlobalControl.Instance.savedPlayerData;
 	}
+
+	public void KillPlayer()
+    {
+		SceneManager.LoadScene("Customization");
+	}
+
 }
