@@ -4,38 +4,32 @@ using UnityEngine;
 
 public class GlobalControl : MonoBehaviour
 {
-    public static GlobalControl Instance;
+    public static GlobalControl instance;
 
-    //TUTORIAL
-    public CharacterStats savedPlayerData = new CharacterStats();
+    public static GlobalControl GetInstance()
+    {
+        return instance;
+    }
+
+
+    public PlayerStats savedPlayerData = new PlayerStats();
 
 	//Copy or our player, if we ever need it game-wide
 	public GameObject Player;
 
-	//Transition target is set by TransitionScript component, when interacted with. 
-	//This enables us to spawn the player at custom location when next scene is loaded.
-	//To use this, first go to your destination scene, and make an empty GameObject and position it
-	//where you would like for player to spawn, and use Copy on transform component. 
-	//Next, go to your source scene, make empty GameObject, and paste component values. This will position the 
-	//game object at some arbitrary position. Assign this game object as transition target to the TransitionScript.
-	//Your player will be moved to that location after next scene is loaded.
-	//public Transform TransitionTarget;
-
-
-
-	//Pseudo-singleton concept from Unity dev tutorial video:
     void Awake()
     {
-        Application.targetFrameRate = 144;
+        //Application.targetFrameRate = 144;
 
-        if (Instance == null)
+        if (instance == null)
         {
             DontDestroyOnLoad(gameObject);
-            Instance = this;
+            instance = this;
         }
-        else if (Instance != this)
+        else if (instance != this)
         {
             Destroy(gameObject);
+            return;
         }
 
 		//if (TransitionTarget == null)

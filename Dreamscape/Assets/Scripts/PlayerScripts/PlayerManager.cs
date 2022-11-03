@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
 	public GameObject player;
 
 	//TUTORIAL
-	public CharacterStats localPlayerData = new CharacterStats();
+	public PlayerStats localPlayerData = new PlayerStats();
 
 	void Awake()
 	{
@@ -21,15 +21,15 @@ public class PlayerManager : MonoBehaviour
 		if (Instance != this)
 			Destroy(gameObject);
 
-		GlobalControl.Instance.Player = gameObject;
+		GlobalControl.instance.Player = gameObject;
 	}
 	public void SavePlayer()
 	{
-		GlobalControl.Instance.savedPlayerData = localPlayerData;
+		GlobalControl.instance.savedPlayerData = localPlayerData;
 	}
 	void Start()
 	{
-		localPlayerData = GlobalControl.Instance.savedPlayerData;
+		localPlayerData = GlobalControl.instance.savedPlayerData;
 	}
 
 	public void KillPlayer()

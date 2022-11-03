@@ -7,6 +7,20 @@ using System.Collections;
 /// </summary>
 public class TransitionScript : MonoBehaviour
 {
+
+
+
+	//Copy or our player, if we ever need it game-wide
+	public GameObject Player;
+
+
+
+	void Update()
+    {
+
+		GlobalControl.GetInstance().GetComponent<PlayerStats>();
+    }
+
 	////To which level are we going to?
 	//public int TargetedSceneIndex;
 

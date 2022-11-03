@@ -25,9 +25,9 @@ public class PlayerDash : MonoBehaviour
     {   
         if(dashCD <= 0)
         { 
+
             if (Input.GetButtonDown("Dash"))
             {
-                animator.SetBool("isSprinting", true);
                 StartCoroutine(Dash());
             }
         }
@@ -46,6 +46,7 @@ public class PlayerDash : MonoBehaviour
         {
             moveScript.controller.Move(moveScript.moveDir * dashSpeed * Time.deltaTime);
 
+            animator.SetBool("isSprinting", true);
             dashCD = 0.8f;
             yield return null;
         }
