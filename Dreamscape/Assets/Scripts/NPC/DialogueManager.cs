@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +8,13 @@ using UnityEngine.Rendering;
 using UnityEngine.Events;
 using Cinemachine;
 
-
+[Serializable]
 public class QuestionEvent : UnityEvent<Question> { }
 public class DialogueManager : MonoBehaviour
 {
+
+    public QuestionEvent questionEvent;
+
     public bool inDialogue;
 
     public static DialogueManager instance;
@@ -25,7 +28,6 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI nameTMP;
     public Image choiceBubble;
     public TextMeshProUGUI choiceTM;
-
     [HideInInspector]
     public NPCScript currentNpc;
 
@@ -42,8 +44,6 @@ public class DialogueManager : MonoBehaviour
     [Space]
 
     public Volume dialogueDof;
-
-    public QuestionEvent questionEvent;
 
 
     private void Awake()
@@ -69,15 +69,19 @@ public class DialogueManager : MonoBehaviour
                 s.AppendCallback(() => ResetState());
             }
 
-            if (nextDialogue)
+            if (nextDialogue && dialogueIndex < conversation.conversationBlock.Count)
             {
                 animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
             }
             else
-            {
                 AdvanceConversation();
-            }
         }
+    }
+    public void ChangeConversation(ObjectDialogue nextConversation)
+    {
+        nextDialogue = true;
+        conversation = nextConversation;
+        animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
     }
     private void AdvanceConversation()
     {
@@ -90,7 +94,7 @@ public class DialogueManager : MonoBehaviour
             questionEvent.Invoke(conversation.question);
         }
         else if (conversation.nextConversation != null)
-            animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
+            ChangeConversation(conversation.nextConversation);
         else
             FinishDialogue();
     }
@@ -149,6 +153,13 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueIndex++;
             nextDialogue = true;
+        }
+        else if (conversation.nextConversation != null)
+        {
+            nextDialogue = true;
+            canExit = false;
+            ChangeConversation(conversation.nextConversation);
+
         }
         else
         {

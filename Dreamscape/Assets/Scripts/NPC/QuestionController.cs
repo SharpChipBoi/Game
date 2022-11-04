@@ -18,7 +18,7 @@ public class QuestionController : MonoBehaviour
         Initialize();
     }
 
-    public void Hide(DialogueManager conversation)
+    public void Hide(ObjectDialogue conversation)
     {
         RemoveChoices();
         gameObject.SetActive(false);
@@ -32,7 +32,7 @@ public class QuestionController : MonoBehaviour
         choiceControllers.Clear();
     }
 
-    private void Start() { }
+
 
     private void Initialize()
     {

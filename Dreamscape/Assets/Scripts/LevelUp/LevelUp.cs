@@ -13,13 +13,15 @@ public class LevelUp : MonoBehaviour
 
     float lastMadeVisible;
     Transform ui;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI xpText;
     [Header("UI")]
     public Image xpSliderFront;
     public Image xpBack;
     Transform cam;
 
     public int level;
-    private float currentXP;
+    private float currentXP = 0;
     private float requiredXP;
 
     private float lerpTimer;
@@ -32,7 +34,6 @@ public class LevelUp : MonoBehaviour
     [Range(7f,14f)]
     public float divisionMultiplier = 7;
 
-    CharacterStats hp;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,8 @@ public class LevelUp : MonoBehaviour
         }
         xpSliderFront.fillAmount = currentXP / requiredXP;
         xpBack.fillAmount = currentXP / requiredXP;
-        currentXP = CalculateRequiredXp();
+        requiredXP = CalculateRequiredXp();
+        levelText.text = "Level" + level;
     }
 
     // Update is called once per frame
@@ -74,14 +76,14 @@ public class LevelUp : MonoBehaviour
         {
             delayTimer += Time.deltaTime;
             xpBack.fillAmount = xpFraction;
-            if(delayTimer > 3)
+            if(delayTimer > 2)
             {
                 lerpTimer += Time.deltaTime;
-                float percentComplete = lerpTimer / 2;
+                float percentComplete = lerpTimer / 4;
                 xpSliderFront.fillAmount = Mathf.Lerp(xpFront, xpBack.fillAmount, percentComplete);
             }
         }
-
+        xpText.text = currentXP + "/" + requiredXP;
     }
 
 
@@ -117,6 +119,7 @@ public class LevelUp : MonoBehaviour
         GetComponent<CharacterStats>().IncreaseHealth(level);
         GetComponent<CharacterStats>().IncreaseDamage(level);
         requiredXP = CalculateRequiredXp();
+        levelText.text = "Level: " + level;
     }
 
     private int CalculateRequiredXp()

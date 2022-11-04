@@ -9,6 +9,7 @@ public class ItemInteract : ScriptableObject
     new public string name = "New Item";
     public Sprite icon = null;
     public bool isDefaultItem = false;
+    public bool isHealing = false;
 
     public virtual void Use()
     {

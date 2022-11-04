@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 [RequireComponent(typeof(CharacterStats))]
@@ -15,11 +16,12 @@ public class HealthUI : MonoBehaviour
     Transform ui;
     Image healthSlider;
     Transform cam;
-
+    public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
     void Start()
     {
+
         cam = Camera.main.transform;
         foreach (Canvas c in FindObjectsOfType<Canvas>())
         {
@@ -35,9 +37,9 @@ public class HealthUI : MonoBehaviour
     }
 
 
-    void OnHealthChanged(float maxHealth, float currentHealth)
+    void OnHealthChanged(int maxHealth, int currentHealth)
     {
-        if(ui != null)
+        if (ui != null)
         {
             ui.gameObject.SetActive(true);
             lastMadeVisible = Time.time;
@@ -47,7 +49,6 @@ public class HealthUI : MonoBehaviour
             {
                 Destroy(ui.gameObject);
             }
-
         }
     }
 

@@ -29,6 +29,7 @@ public class Enemy : Interactable
 
 	void Die()
 	{
-		Destroy(gameObject);
+		//Debug.Log("waht");
+		//Destroy(gameObject);
 	}
 }

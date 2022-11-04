@@ -10,13 +10,13 @@ public class CharacterStats: MonoBehaviour
 
     public float xp;
 
-    public float maxHealth;
-    public float currentHealth { get; private set; }
+    public int maxHealth;
+    public int currentHealth { get; private set; }
 
     public Stat damage;
     public Stat armor;
 
-    public event System.Action<float, float> OnHealthChanged;
+    public event System.Action<int, int> OnHealthChanged;
 
 
     public event System.Action OnHealthReachedZero;
@@ -57,13 +57,12 @@ public class CharacterStats: MonoBehaviour
 
     public void IncreaseHealth(int level)
     {
-        maxHealth += (currentHealth * 0.01f) * ((100 - level) * 0.1f);
+        maxHealth += (int)((currentHealth * 0.01f) * ((100 - level) * 0.1f));
         currentHealth = maxHealth;
     }
     public void IncreaseDamage(int level)
     {
-        float currentdamage = damage.GetValue(); 
-        currentdamage = (currentdamage * 0.01f) * ((100 - level) * 0.1f);
+        damage.baseVal += (int)((100 - level) * 0.025f);
     }
 
 
