@@ -69,19 +69,34 @@ public class DialogueManager : MonoBehaviour
                 s.AppendCallback(() => ResetState());
             }
 
-            if (nextDialogue && dialogueIndex < conversation.conversationBlock.Count)
+            if (nextDialogue)
             {
                 animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
             }
-            else
-                AdvanceConversation();
         }
     }
     public void ChangeConversation(ObjectDialogue nextConversation)
     {
-        nextDialogue = true;
+        nextDialogue = false;
         conversation = nextConversation;
-        animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
+        AdvanceLine();
+    }
+
+    private void Initialize()
+    {
+        inDialogue = true;
+        dialogueIndex = 0;
+    }
+
+    private void AdvanceLine()
+    {
+        if (conversation == null) return;
+        if (!inDialogue) Initialize();
+
+        if (dialogueIndex < conversation.conversationBlock.Count)
+            animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
+        else
+            AdvanceConversation();
     }
     private void AdvanceConversation()
     {
@@ -153,13 +168,6 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueIndex++;
             nextDialogue = true;
-        }
-        else if (conversation.nextConversation != null)
-        {
-            nextDialogue = true;
-            canExit = false;
-            ChangeConversation(conversation.nextConversation);
-
         }
         else
         {

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e767a45694f8649b4d15875330da98, type: 3}
+  m_Name: Lucy
+  m_EditorClassIdentifier: 
+  npcName: Lucy
+  npcColor: {r: 0.6994037, g: 0.7283731, b: 0.8773585, a: 0}
+  npcNameColor: {r: 0.3504361, g: 0.3676334, b: 0.7075472, a: 0}
+  dialogue: {fileID: 11400000, guid: 9df080f5cf4d766438c5d6770b710e02, type: 2}

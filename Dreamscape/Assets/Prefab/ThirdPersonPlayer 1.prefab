@@ -593,6 +593,7 @@ GameObject:
   - component: {fileID: 2038587115708245356}
   - component: {fileID: 7084732687682551416}
   - component: {fileID: 3113570665047638636}
+  - component: {fileID: 5062643993602335351}
   m_Layer: 12
   m_Name: ThirdPersonPlayer 1
   m_TagString: Player
@@ -637,7 +638,7 @@ CharacterController:
   m_Height: 3.36
   m_Radius: 0.51
   m_SlopeLimit: 45
-  m_StepOffset: 1
+  m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.72, z: 0}
@@ -774,6 +775,7 @@ MonoBehaviour:
   uiPrefab: {fileID: 4109675707959935606, guid: 191cc1310098ea743b9d6d36d5fe8647,
     type: 3}
   target: {fileID: 739340877822108711}
+  healthText: {fileID: 0}
 --- !u!114 &7084732687682551416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,6 +790,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPrefab: {fileID: 336413810572343171}
   target: {fileID: 299176089351050477}
+  levelText: {fileID: 0}
+  xpText: {fileID: 0}
   xpSliderFront: {fileID: 336413810883038681}
   xpBack: {fileID: 336413810572343169}
   level: 1
@@ -808,6 +812,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCombatManager: {fileID: 2858510363624469947}
   playerStats: {fileID: 2617630044299814308}
+--- !u!114 &5062643993602335351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274076785749912300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72cd63c4d18cae944b6a49418eb4dabf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushForce: 1
 --- !u!1 &2274076785874882327
 GameObject:
   m_ObjectHideFlags: 0

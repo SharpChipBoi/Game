@@ -580,6 +580,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 2100561179}
+    - target: {fileID: 7084732687682551416, guid: 366002dafab0bed478b4f0f1b76b75c7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 366002dafab0bed478b4f0f1b76b75c7, type: 3}
 --- !u!1 &56292882 stripped
@@ -749,7 +754,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100972073}
-  m_LocalRotation: {x: 0.04719864, y: 0.95109725, z: -0.18469574, w: 0.24305107}
+  m_LocalRotation: {x: 0.047198646, y: 0.95109725, z: -0.18469574, w: 0.2430511}
   m_LocalPosition: {x: 22.952005, y: 5.5699997, z: 35.097157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1862,7 +1867,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 36.4, y: 74.3}
-  m_SizeDelta: {x: 246.9, y: 80.22}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &694553299
 MonoBehaviour:
@@ -2008,7 +2013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choice:
     text: 
-    conversation: {fileID: 11400000, guid: 03a647e3229df1e40aad51c281d8905f, type: 2}
+    conversation: {fileID: 0}
   conversationChangeEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2939,10 +2944,10 @@ RectTransform:
   m_Father: {fileID: 694553298}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 123.45, y: -40.11}
-  m_SizeDelta: {x: 146.9, y: 40.22}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 121.165, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256698112
 MonoBehaviour:
@@ -3709,7 +3714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1656297400
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3742,7 +3747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d653a0bf6f567d44b4e7ff87d5b1ccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  question: {fileID: 11400000, guid: 27cfbf9b14cef694182b0d3c0b88a864, type: 2}
+  question: {fileID: 0}
   choiceButton: {fileID: 694553303}
 --- !u!1 &1682012428 stripped
 GameObject:
