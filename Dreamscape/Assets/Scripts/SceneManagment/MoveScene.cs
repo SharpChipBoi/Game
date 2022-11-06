@@ -25,7 +25,7 @@ public class MoveScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && nextDoor)
         {
-            PlayerManager.Instance.SavePlayer();
+            PlayerManager.instance.SavePlayer();
             SceneManager.LoadScene(loadRoom);
         }
     }

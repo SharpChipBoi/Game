@@ -28,7 +28,7 @@ public class ConversationController : MonoBehaviour
 
     private int activeLineIndex;
     private bool conversationStarted = false;
-    public bool inDialogue;
+    public bool inDialogue = false;
 
     public void ChangeConversation(Conversation nextConversation)
     {
@@ -49,12 +49,12 @@ public class ConversationController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && inDialogue)
+        if (Input.GetKeyDown(KeyCode.Return) && inDialogue)
         {
             movement.active = false;
             AdvanceLine();
         }
-        else if (Input.GetKeyDown("x"))
+        else if (Input.GetKeyDown("x") && !inDialogue)
             EndConversation();
     }
     public void CameraChange(bool dialogue)
@@ -64,6 +64,7 @@ public class ConversationController : MonoBehaviour
     }
     private void EndConversation()
     {
+        CameraChange(false);
         conversation = defaultConversation;
         conversationStarted = false;
         inDialogue = false;
@@ -80,7 +81,7 @@ public class ConversationController : MonoBehaviour
         speakerUIRight.Speaker = conversation.speakerRight;
     }
 
-    private void AdvanceLine()
+    public void AdvanceLine()
     {
         if (conversation == null) return;
         if (!conversationStarted) Initialize();

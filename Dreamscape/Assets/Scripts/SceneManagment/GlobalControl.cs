@@ -6,34 +6,31 @@ public class GlobalControl : MonoBehaviour
 {
     public static GlobalControl instance;
 
-    public static GlobalControl GetInstance()
-    {
-        return instance;
-    }
-
-
     public PlayerStats savedPlayerData = new PlayerStats();
+    //Copy or our player, if we ever need it game-wide
 
-	//Copy or our player, if we ever need it game-wide
-	public GameObject Player;
+    private void OnDestroy()
+    {
+        Debug.Log("GlobalObject destroyed");
+    }
 
     void Awake()
     {
         //Application.targetFrameRate = 144;
-
+        //GameObject.DontDestroyOnLoad(this.gameObject);
         if (instance == null)
         {
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this.gameObject);
             instance = this;
         }
         else if (instance != this)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
             return;
         }
 
-		//if (TransitionTarget == null)
-		//	TransitionTarget = gameObject.transform;
-      
+        //if (TransitionTarget == null)
+        //TransitionTarget = gameObject.transform;
+
     }
 }

@@ -15,7 +15,7 @@ public class EnemyRadius : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerManager.Instance.player.transform;
+        target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
     }

@@ -6,6 +6,10 @@ public class PushObject : MonoBehaviour
 {
     public float pushForce = 1f;
     private PlayerMovement tpc;
+    private void Start()
+    {
+        tpc = gameObject.GetComponent<PlayerMovement>();
+    }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody body = hit.collider.attachedRigidbody;
@@ -21,9 +25,5 @@ public class PushObject : MonoBehaviour
 
         Vector3 forceDiraction = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
         body.velocity = forceDiraction * pushForce;
-    }
-    private void Start()
-    {
-        tpc = gameObject.GetComponent<PlayerMovement>();
     }
 }

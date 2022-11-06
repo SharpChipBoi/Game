@@ -10,7 +10,7 @@ public class Enemy : Interactable
 
 	void Start()
 	{
-		playerManager = PlayerManager.Instance;
+		playerManager = PlayerManager.instance;
 		stats = GetComponent<CharacterStats>();
 		stats.OnHealthReachedZero += Die;
 	}

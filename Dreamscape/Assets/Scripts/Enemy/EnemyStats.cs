@@ -8,7 +8,7 @@ public class EnemyStats : CharacterStats
 
     void Start()
     {
-        playerManager = PlayerManager.Instance;
+        playerManager = PlayerManager.instance;
     }
 
     public override void Die()

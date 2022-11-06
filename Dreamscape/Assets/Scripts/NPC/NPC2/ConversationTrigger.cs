@@ -11,6 +11,7 @@ public class ConversationTrigger : MonoBehaviour
     public CinemachineTargetGroup targetGroup;
     public GameObject npc;
     public bool canTalk = false;
+    public PlayerMovement movement;
 
 
     void Start()
@@ -22,13 +23,14 @@ public class ConversationTrigger : MonoBehaviour
     void Update()
     {
         if(canTalk && !ui.inDialogue) {
-
-            ui.inDialogue = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
+                movement.active = false;
                 ui.CameraChange(true);
+                ui.inDialogue = true;
                 interactButton.SetActive(false);
                 targetGroup.m_Targets[1].target = npc.transform;
+                ui.AdvanceLine();
                 //currentNpc.TurnToPlayer(transform.position);
             }
         }

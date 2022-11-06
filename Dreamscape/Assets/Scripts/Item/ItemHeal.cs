@@ -11,7 +11,7 @@ public class ItemHeal : Interactable
     // Start is called before the first frame update
     void Start()
     {
-        playerManager = PlayerManager.Instance;
+        playerManager = PlayerManager.instance;
     }
 
 

@@ -17,8 +17,7 @@ public class TransitionScript : MonoBehaviour
 
 	void Update()
     {
-
-		GlobalControl.GetInstance().GetComponent<PlayerStats>();
+		//GlobalControl.GetInstance().GetComponent<PlayerStats>();
     }
 
 	////To which level are we going to?

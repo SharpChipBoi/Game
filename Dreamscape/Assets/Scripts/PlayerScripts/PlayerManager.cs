@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-	public static PlayerManager Instance;
+	public static PlayerManager instance;
 
 	public Transform playerPosition;
 	public GameObject player;
@@ -15,13 +15,13 @@ public class PlayerManager : MonoBehaviour
 
 	void Awake()
 	{
-		if (Instance == null)
-			Instance = this;
+		if (instance == null)
+			instance = this;
 
-		if (Instance != this)
+		if (instance != this)
 			Destroy(gameObject);
 
-		GlobalControl.instance.Player = gameObject;
+		//GlobalControl.instance.Player = gameObject;
 	}
 	public void SavePlayer()
 	{
