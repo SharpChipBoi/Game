@@ -7,35 +7,37 @@ using Cinemachine;
 public class ConversationTrigger : MonoBehaviour
 {
     private ConversationController ui;
-    public PlayerMovement movement;
     public GameObject interactButton;
     public CinemachineTargetGroup targetGroup;
     public GameObject npc;
+    public bool canTalk = false;
 
 
     void Start()
     {
         ui = ConversationController.instance;
         interactButton.SetActive(false);
-        movement = GetComponent<PlayerMovement>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !ui.inDialogue)
-        {
-            ui.CameraChange(true);
-            interactButton.SetActive(false);
-            targetGroup.m_Targets[1].target = npc.transform;
+        if(canTalk && !ui.inDialogue) {
+
             ui.inDialogue = true;
-            movement.active = false;
-            //currentNpc.TurnToPlayer(transform.position);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                ui.CameraChange(true);
+                interactButton.SetActive(false);
+                targetGroup.m_Targets[1].target = npc.transform;
+                //currentNpc.TurnToPlayer(transform.position);
+            }
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            canTalk = true;
             interactButton.SetActive(true);
         }
     }
@@ -44,6 +46,7 @@ public class ConversationTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            canTalk = false;
             interactButton.SetActive(false);
         }
     }

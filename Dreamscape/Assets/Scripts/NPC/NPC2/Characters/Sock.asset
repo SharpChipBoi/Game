@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sock
   m_EditorClassIdentifier: 
   fullName: Sock
-  portrait: {fileID: 21300000, guid: cd187410bb0b61449aa5a9b30570e60f, type: 3}
-  portraitAngry: {fileID: 21300000, guid: 5f7b6073f0f8b2048a797e3a7572a6bf, type: 3}
-  portraitSad: {fileID: 21300000, guid: 183aac318b7d2f943a80d244b8440e49, type: 3}
-  portraitHappy: {fileID: 21300000, guid: 9c9038faa0b8f204c9a2468c6ce44aa9, type: 3}
+  portrait: {fileID: 21300000, guid: 88d0ac02a738d6f4fb88b513753ed7b0, type: 3}
+  portraitAngry: {fileID: 21300000, guid: 8f6f9c492121cf545967b8848c05aacc, type: 3}
+  portraitSad: {fileID: 21300000, guid: 09f9aea2bbd58cc4fb20bd2d033e1758, type: 3}
+  portraitHappy: {fileID: 21300000, guid: 97d84e0fc71f4c146a470968090adccd, type: 3}

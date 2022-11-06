@@ -36,6 +36,14 @@ public class SpeakerUiController : MonoBehaviour
             {
                 sprite = speaker.portraitAngry;
             }
+            else if (value == Mood.Sad)
+            {
+                sprite = speaker.portraitSad;
+            }
+            else if(value == Mood.Happy)
+            {
+                sprite = speaker.portraitHappy;
+            }
             else
             {
                 sprite = speaker.portrait;

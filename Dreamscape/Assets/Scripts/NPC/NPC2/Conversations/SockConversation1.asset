@@ -20,6 +20,6 @@ MonoBehaviour:
     mood: 2
   - character: {fileID: 11400000, guid: e65a65268c895dd45b48f830e40911c3, type: 2}
     text: Maybe, I'll go try...
-    mood: 0
+    mood: 2
   question: {fileID: 0}
   nextConversation: {fileID: 0}

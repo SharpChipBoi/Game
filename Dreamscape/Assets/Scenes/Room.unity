@@ -3805,7 +3805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -226, y: -59}
+  m_AnchoredPosition: {x: -354, y: 13}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1186080016
@@ -3827,7 +3827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b630c095d47ad574ea4f2da3a3877508, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7563d7d2e03ae34b90ed0d1db73550e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4745,10 +4745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: defa0fe4ea6b8844fb23f8b75a504869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 56292891}
   interactButton: {fileID: 1043369690}
   targetGroup: {fileID: 544861566}
   npc: {fileID: 919132147720945900}
+  canTalk: 0
 --- !u!1 &1496223831
 GameObject:
   m_ObjectHideFlags: 0
@@ -5115,14 +5115,14 @@ RectTransform:
   m_GameObject: {fileID: 1642535723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.02, y: 2.35, z: 1}
+  m_LocalScale: {x: 4, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 934679656}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 270, y: -57}
+  m_AnchoredPosition: {x: 281, y: -40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642535725
@@ -5144,7 +5144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cd187410bb0b61449aa5a9b30570e60f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88d0ac02a738d6f4fb88b513753ed7b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5335,7 +5335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1672713697}
   m_Layer: 5
-  m_Name: Diologue
+  m_Name: Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

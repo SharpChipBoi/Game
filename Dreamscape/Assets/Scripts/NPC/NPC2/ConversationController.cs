@@ -64,11 +64,10 @@ public class ConversationController : MonoBehaviour
     }
     private void EndConversation()
     {
-        movement.active = true;
-        CameraChange(false);
         conversation = defaultConversation;
         conversationStarted = false;
         inDialogue = false;
+        movement.active = true;
         speakerUILeft.Hide();
         speakerUIRight.Hide();
     }
@@ -122,7 +121,9 @@ public class ConversationController : MonoBehaviour
         else if (conversation.nextConversation != null)
             ChangeConversation(conversation.nextConversation);
         else
+        {
             EndConversation();
+        }
     }
 
     private void SetDialog(
