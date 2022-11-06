@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   choices:
   - text: Not good...
-    conversation: {fileID: 11400000, guid: 91ff487c5e23f144ea99c1cbd11b492a, type: 2}
-  - text: I'm okay
-    conversation: {fileID: 11400000, guid: 9dd29c43020b5664db91d328a6fbc9a4, type: 2}
+    conversation: {fileID: 11400000, guid: 589f55ba798e8ca4a813062da5b4b172, type: 2}
+  - text: I'm okay.
+    conversation: {fileID: 11400000, guid: 6eb6d202691297f41b8835e99494c83c, type: 2}

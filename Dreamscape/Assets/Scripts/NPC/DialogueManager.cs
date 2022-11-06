@@ -8,12 +8,12 @@ using UnityEngine.Rendering;
 using UnityEngine.Events;
 using Cinemachine;
 
-[Serializable]
-public class QuestionEvent : UnityEvent<Question> { }
+//[Serializable]
+//public class QuestionEvent : UnityEvent<Question> { }
 public class DialogueManager : MonoBehaviour
 {
 
-    public QuestionEvent questionEvent;
+    //public QuestionEvent questionEvent;
 
     public bool inDialogue;
 
@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
 
 
     public ObjectDialogue conversation;
+    public ObjectDialogue defaultConversation;
 
     public CanvasGroup canvasGroup;
     public TMP_Animated animatedText;
@@ -71,13 +72,14 @@ public class DialogueManager : MonoBehaviour
 
             if (nextDialogue)
             {
-                animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
+                AdvanceLine();
             }
         }
     }
     public void ChangeConversation(ObjectDialogue nextConversation)
     {
-        nextDialogue = false;
+        nextDialogue = true;
+        inDialogue = false;
         conversation = nextConversation;
         AdvanceLine();
     }
@@ -95,24 +97,24 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueIndex < conversation.conversationBlock.Count)
             animatedText.ReadText(currentNpc.dialogue.conversationBlock[dialogueIndex]);
-        else
-            AdvanceConversation();
+        //else
+            //AdvanceConversation();
     }
-    private void AdvanceConversation()
-    {
-        // These are really three types of dialog tree node
-        // and should be three different objects with a standard interface
-        if (conversation.question != null)
-        {
-            Debug.Log(questionEvent == null);
-            Debug.Log(questionEvent);
-            questionEvent.Invoke(conversation.question);
-        }
-        else if (conversation.nextConversation != null)
-            ChangeConversation(conversation.nextConversation);
-        else
-            FinishDialogue();
-    }
+    //private void AdvanceConversation()
+    //{
+    //    // These are really three types of dialog tree node
+    //    // and should be three different objects with a standard interface
+    //    if (conversation.question != null)
+    //    {
+    //        Debug.Log(questionEvent == null);
+    //        Debug.Log(questionEvent);
+    //        questionEvent.Invoke(conversation.question);
+    //    }
+    //    else if (conversation.nextConversation != null)
+    //        ChangeConversation(conversation.nextConversation);
+    //    else
+    //        FinishDialogue();
+    //}
     public void FadeUI(bool show, float time, float delay)
     {
         Sequence s = DOTween.Sequence();
@@ -164,16 +166,15 @@ public class DialogueManager : MonoBehaviour
 
     public void FinishDialogue()
     {
-        if (dialogueIndex < currentNpc.dialogue.conversationBlock.Count - 1)
-        {
-            dialogueIndex++;
-            nextDialogue = true;
-        }
-        else
-        {
-            nextDialogue = false;
-            canExit = true;
-        }
+        //if (dialogueIndex < currentNpc.dialogue.conversationBlock.Count - 1 && (conversation.nextConversation != null || conversation.question != null))
+        //{
+        //    dialogueIndex++;
+        //    nextDialogue = true;
+        //}
+        conversation = defaultConversation;
+        inDialogue = false;
+        canExit = true;
+        
     }
 
 }

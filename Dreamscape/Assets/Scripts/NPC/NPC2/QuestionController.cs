@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class QuestionController : MonoBehaviour
 {
     public Question question;
+    //public TextMeshProUGUI questionText;
     public Button choiceButton;
 
     private List<ChoiceController> choiceControllers = new List<ChoiceController>();
@@ -18,7 +20,7 @@ public class QuestionController : MonoBehaviour
         Initialize();
     }
 
-    public void Hide(ObjectDialogue conversation)
+    public void Hide(Conversation conversation)
     {
         RemoveChoices();
         gameObject.SetActive(false);
@@ -32,10 +34,12 @@ public class QuestionController : MonoBehaviour
         choiceControllers.Clear();
     }
 
-
+    private void Start() { }
 
     private void Initialize()
     {
+        //questionText.text = question.text;
+
         for (int index = 0; index < question.choices.Length; index++)
         {
             ChoiceController c = ChoiceController.AddChoiceButton(choiceButton, question.choices[index], index);

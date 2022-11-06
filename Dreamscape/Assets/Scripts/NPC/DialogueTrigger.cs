@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     private DialogueManager ui;
     private NPCScript currentNpc;
-    private PlayerMovement movement;
+    public PlayerMovement movement;
     public CinemachineTargetGroup targetGroup;
     public GameObject interactButton;
 

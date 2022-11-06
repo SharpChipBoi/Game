@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 260835329}
   - component: {fileID: 260835333}
   - component: {fileID: 260835334}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,8 +820,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 3.8317838}
+  m_Center: {x: 0.000000070721505, y: 0, z: 1.415884}
 --- !u!23 &260835331
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -896,7 +896,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000001, z: 1.0000002}
+  m_Size: {x: 1, y: 1.0000001, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &310562199 stripped
 MonoBehaviour:
@@ -3329,7 +3329,7 @@ GameObject:
   - component: {fileID: 1371665582}
   - component: {fileID: 1371665581}
   - component: {fileID: 1371665580}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3361,7 +3361,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000001, z: 1.0000002}
+  m_Size: {x: 1, y: 1.0000001, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1371665581
 MonoBehaviour:
@@ -3405,8 +3405,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.9999997, z: 3.9948761}
+  m_Center: {x: 2.253764e-16, y: 0, z: 1.4974389}
 --- !u!23 &1371665584
 MeshRenderer:
   m_ObjectHideFlags: 0

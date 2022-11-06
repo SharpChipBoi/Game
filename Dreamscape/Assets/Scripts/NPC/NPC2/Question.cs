@@ -6,7 +6,7 @@ public struct Choice
 {
     [TextArea(2, 5)]
     public string text;
-    public ObjectDialogue conversation;
+    public Conversation conversation;
 }
 
 [CreateAssetMenu(fileName = "New Question", menuName = "Question")]

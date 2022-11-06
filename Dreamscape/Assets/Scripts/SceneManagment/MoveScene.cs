@@ -33,7 +33,7 @@ public class MoveScene : MonoBehaviour
     {
 
         //GlobalControl.Instance.TransitionTarget.position = TargetPlayerLocation.position;
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             nextDoor = true;
             interactButton.SetActive(true);
@@ -43,7 +43,7 @@ public class MoveScene : MonoBehaviour
     {
 
         //GlobalControl.Instance.TransitionTarget.position = TargetPlayerLocation.position;
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             nextDoor = false;
             interactButton.SetActive(false);

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    UI_Inventory uiInventory;
     public CharacterController controller;
 
     public float speed = 6f;

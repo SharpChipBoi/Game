@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using TMPro;
 
 [System.Serializable]
-public class ConversationChangeEvent : UnityEvent<ObjectDialogue> { }
+public class ConversationChangeEvent : UnityEvent<Conversation> { }
 
 public class ChoiceController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ChoiceController : MonoBehaviour
 
     public static ChoiceController AddChoiceButton(Button choiceButtonTemplate, Choice choice, int index)
     {
-        int buttonSpacing = -44;
+        int buttonSpacing = -100;
         Button button = Instantiate(choiceButtonTemplate);
 
         button.transform.SetParent(choiceButtonTemplate.transform.parent);
@@ -31,7 +32,7 @@ public class ChoiceController : MonoBehaviour
         if (conversationChangeEvent == null)
             conversationChangeEvent = new ConversationChangeEvent();
 
-        GetComponent<Button>().GetComponentInChildren<Text>().text = choice.text;
+        GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
     }
 
     public void MakeChoice()
