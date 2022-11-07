@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: a91e5e54506f9854787d82a7c4dad069
+guid: 797270e2fa3204c4d96b660608e97442
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - achievementPrefab: {fileID: 9068894957164980382, guid: 420d6ed919e0cc3439fa2f6ab02c2df5,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
