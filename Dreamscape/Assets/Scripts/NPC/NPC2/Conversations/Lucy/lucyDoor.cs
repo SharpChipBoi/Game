@@ -8,7 +8,7 @@ public class lucyDoor : MonoBehaviour
     DoorTrigger doorOpen;
     public Conversation conversation1;
     private ConversationController ui;
-
+    //Смотрим если мы открыли дверь, то Люси на нее отреагирует 
     private void Start()
     {
 

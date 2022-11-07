@@ -9,7 +9,7 @@ public class NpcAim : MonoBehaviour
     public Transform aimTarget;
     public MultiAimConstraint multiAim;
 
-    void Update()
+    void Update()//Птица смотрит на aimTarget и меняет положение головы
     {
         float weight = (aimTarget == null) ? 0 : 1f;
         Vector3 pos = (aimTarget == null) ? transform.position + transform.forward + Vector3.up : aimTarget.position + Vector3.up;

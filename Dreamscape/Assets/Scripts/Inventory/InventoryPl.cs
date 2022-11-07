@@ -29,28 +29,28 @@ public class InventoryPl: MonoBehaviour
 
     public List<ItemInteract> items;
 
-    public bool AddItem(ItemInteract item)
+    public bool AddItem(ItemInteract item)//добавляем предмет в инвентрь
     {
-        // Don't do anything if it's a default item
+        // ничего не делать если предмет из дефолтных
         if (!item.isDefaultItem)
         {
-            // Check if out of space
+            //проверить есть ли место
             if (items.Count >= space)
             {
                 Debug.Log("Not enough room.");
                 return false;
             }
 
-            items.Add(item);    // Add item to list
+            items.Add(item);    // добавить предмет а лист
 
-            // Trigger callback
+            // Триггерим обратный вызов
             if (onItemChangedCallback != null)
                 onItemChangedCallback.Invoke();
         }
 
         return true;
     }
-    public void Remove(ItemInteract item)
+    public void Remove(ItemInteract item)//удаляем предмет из листа
     {
         items.Remove(item);
         if (onItemChangedCallback != null)

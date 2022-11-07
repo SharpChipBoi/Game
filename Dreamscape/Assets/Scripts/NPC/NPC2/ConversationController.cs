@@ -30,7 +30,7 @@ public class ConversationController : MonoBehaviour
     private bool conversationStarted = false;
     public bool inDialogue = false;
 
-    public void ChangeConversation(Conversation nextConversation)
+    public void ChangeConversation(Conversation nextConversation)//если есть следующее предложение меняемся на него
     {
         conversationStarted = false;
         conversation = nextConversation;
@@ -41,13 +41,13 @@ public class ConversationController : MonoBehaviour
 
         instance = this;
     }
-    private void Start()
+    private void Start()//подключаем двух спикеров
     {
         speakerUILeft = speakerLeft.GetComponent<SpeakerUiController>();
         speakerUIRight = speakerRight.GetComponent<SpeakerUiController>();
     }
 
-    private void Update()
+    private void Update()//при нажатии enter следующий диалог
     {
         if (Input.GetKeyDown(KeyCode.Return) && inDialogue)
         {
@@ -55,14 +55,14 @@ public class ConversationController : MonoBehaviour
             AdvanceLine();
         }
         else if (Input.GetKeyDown("x") && !inDialogue)
-            EndConversation();
+            EndConversation();//если нажмем х мы выйдем из разговора
     }
-    public void CameraChange(bool dialogue)
+    public void CameraChange(bool dialogue)//меняем сновную камеру на камеру диалога
     {
         gameCam.SetActive(!dialogue);
         dialogueCam.SetActive(dialogue);
     }
-    private void EndConversation()
+    private void EndConversation()//завершаем диалог и отключаем весь ЮИ
     {
         CameraChange(false);
         conversation = defaultConversation;
@@ -73,7 +73,7 @@ public class ConversationController : MonoBehaviour
         speakerUIRight.Hide();
     }
 
-    private void Initialize()
+    private void Initialize()//Начинаем диалог с идексом 0
     {
         conversationStarted = true;
         activeLineIndex = 0;
@@ -81,7 +81,7 @@ public class ConversationController : MonoBehaviour
         speakerUIRight.Speaker = conversation.speakerRight;
     }
 
-    public void AdvanceLine()
+    public void AdvanceLine()//Запускаем сделующий диалок
     {
         if (conversation == null) return;
         if (!conversationStarted) Initialize();
@@ -92,7 +92,7 @@ public class ConversationController : MonoBehaviour
             AdvanceConversation();
     }
 
-    private void DisplayLine()
+    private void DisplayLine()//Вывод диалога на экран
     {
         Line line = conversation.lines[activeLineIndex];
         Character character = line.character;
@@ -109,10 +109,8 @@ public class ConversationController : MonoBehaviour
         activeLineIndex += 1;
     }
 
-    private void AdvanceConversation()
+    private void AdvanceConversation()//после ответа на вопросы мы меняем диалог или выходем из него полностью, если вопроса не существует
     {
-        // These are really three types of dialog tree node
-        // and should be three different objects with a standard interface
         if (conversation.question != null)
         {
             Debug.Log(questionEvent == null);
@@ -149,7 +147,6 @@ public class ConversationController : MonoBehaviour
         {
             controller.Dialog += character;
             yield return new WaitForSeconds(0.05f);
-            // yield return null;
         }
     }
 }

@@ -9,12 +9,12 @@ public class CharacterStats: MonoBehaviour
 {
 
     public int maxHealth;
-    public int currentHealth { get; private set; }
+    public int currentHealth { get; private set; }//создаем приватный сеттер максимального и нынешнего здоровья
 
-    public Stat damage;
+    public Stat damage;//создаем статы
     public Stat armor;
 
-    public event System.Action<int, int> OnHealthChanged;
+    public event System.Action<int, int> OnHealthChanged;//если здоровье измениться можно будет воспользоваться этим действием 
 
 
     public event System.Action OnHealthReachedZero;
@@ -24,7 +24,7 @@ public class CharacterStats: MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    public void Damage(int damage)
+    public void Damage(int damage) //если нанесли урон
     {
         damage -= armor.GetValue();
 
@@ -42,7 +42,7 @@ public class CharacterStats: MonoBehaviour
             Die();
         }
     }
-    public void Heal(int healAmount)
+    public void Heal(int healAmount)//если поличили 
     {
         currentHealth += healAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -52,12 +52,12 @@ public class CharacterStats: MonoBehaviour
         }
     }
 
-    public virtual void Die()
+    public virtual void Die()//если игрок или враг умер
     {
         Debug.Log(transform.name + " died");
     }
 
-    public void IncreaseHealth(int level)
+    public void IncreaseHealth(int level)//поднять здоровье засчет уровня
     {
         maxHealth += (int)((currentHealth * 0.01f) * ((100 - level) * 0.1f));
         currentHealth = maxHealth;
@@ -66,7 +66,7 @@ public class CharacterStats: MonoBehaviour
             OnHealthChanged(maxHealth, currentHealth);
         }
     }
-    public void IncreaseDamage(int level)
+    public void IncreaseDamage(int level)//поднять урон засчет уровня
     {
         damage.baseVal += (int)((100 - level) * 0.025f);
     }

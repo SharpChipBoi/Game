@@ -4,6 +4,7 @@ using TMPro;
 
 public class SpeakerUiController : MonoBehaviour
 {
+    //вся нужная информация о спикере
     public Image portrait;
     public TextMeshProUGUI fullName;
     public TextMeshProUGUI dialog;
@@ -21,17 +22,17 @@ public class SpeakerUiController : MonoBehaviour
         }
     }
 
-    public string Dialog
+    public string Dialog//можно получить доступ к диалогу из других скриптов
     {
         get { return dialog.text; }
         set { dialog.text = value; }
     }
 
-    public Mood Mood
+    public Mood Mood//показ эмоций
     {
         set
         {
-            Sprite sprite;
+            Sprite sprite;//если злой, то злой, если обычный, то обычный и тд 
             if (value == Mood.Angry)
             {
                 sprite = speaker.portraitAngry;
@@ -63,7 +64,7 @@ public class SpeakerUiController : MonoBehaviour
         return speaker == character;
     }
 
-    public void Show()
+    public void Show()//подключаем спикера
     {
         gameObject.SetActive(true);
     }

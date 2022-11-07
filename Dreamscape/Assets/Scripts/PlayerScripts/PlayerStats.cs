@@ -7,11 +7,11 @@ public class PlayerStats : CharacterStats
     // Start is called before the first frame update
     void Start()
     {
-        EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;
+        EquipmentManager.instance.onEquipmentChanged += onEquipmentChanged;//если у нас изменились предметы
     }
 
     // Update is called once per frame
-    void onEquipmentChanged(Equipment newItem, Equipment oldItem) 
+    void onEquipmentChanged(Equipment newItem, Equipment oldItem) //если есть новые предметы, которые мы экипировали у которых есть усилители проверяем 
     {
         if(newItem != null)
         {

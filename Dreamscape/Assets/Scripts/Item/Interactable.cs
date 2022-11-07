@@ -5,30 +5,28 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
 
-	public float radius = 3f;               // How close do we need to be to interact?
-	public Transform interactionTransform;  // The transform from where we interact in case you want to offset it
+	public float radius = 3f;               // растояние для поднятия
+	public Transform interactionTransform;  
 
-	public Transform player;       // Reference to the player transform
+	public Transform player;    
 
 
-	public virtual void Interact()
+	public virtual void Interact()//этот метод можно переписать из других методов
 	{
-		// This method is meant to be overwritten
 		Debug.Log("Interacting with " + transform.name);
 	}
 
 	void Update()
 	{
-	// If we are close enough
+	// если мы достаточно близко то можно взаимодействовать с предметом
 			float distance = Vector3.Distance(player.position, interactionTransform.position);
 			if (distance <= radius && Input.GetKeyDown(KeyCode.E))
 			{
-				// Interact with the object
 				Interact();
 			}
 	}
 
-	// Draw our radius in the editor
+	// рисуем радиус гизмосом
 	void OnDrawGizmosSelected()
 	{
 		if (interactionTransform == null)

@@ -28,7 +28,7 @@ public class CharacterCombat : MonoBehaviour
 		attackCountdown -= Time.deltaTime;
 	}
 
-	public void Attack(CharacterStats enemyStats)
+	public void Attack(CharacterStats enemyStats)//атакуем врага(игрок аиакует) или игрока(враг атакует)
 	{
 		if (attackCountdown <= 0f)
 		{
@@ -45,7 +45,7 @@ public class CharacterCombat : MonoBehaviour
 	}
 
 
-	IEnumerator DoDamage(CharacterStats stats, float delay)
+	IEnumerator DoDamage(CharacterStats stats, float delay)//кулдаун на атаку
 	{
 		print("Start");
 		yield return new WaitForSeconds(delay);

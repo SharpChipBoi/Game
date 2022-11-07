@@ -14,7 +14,7 @@ public class InventoryUi : MonoBehaviour
     void Start()
     {
         inventory = InventoryPl.instance;
-        inventory.onItemChangedCallback += UpdateUI;
+        inventory.onItemChangedCallback += UpdateUI;//обнавляем ЮИ в зависемости от изменений
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
     }
@@ -23,10 +23,10 @@ public class InventoryUi : MonoBehaviour
     {
         if (Input.GetButtonDown("Inventory"))
         {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
+            inventoryUI.SetActive(!inventoryUI.activeSelf);//включаем ЮИ при нажатии кнопки инвентаря(i)
         }
     }
-    void UpdateUI()
+    void UpdateUI()//обновляем интрерфейс
     {
         for(int i = 0; i < slots.Length; i++)
         {

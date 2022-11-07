@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 //TUTORIAL
 [Serializable]
-public class PlayerStatistics
+public class PlayerStatistics // данные для сохранения для перехода сцен
 {
 
     public int SceneID;

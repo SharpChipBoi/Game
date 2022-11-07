@@ -20,20 +20,20 @@ public class EquipmentManager : MonoBehaviour
 
 	public Equipment[] defaultItems;
 	public SkinnedMeshRenderer targetMesh;
-	Equipment[] currentEquipment;   // Items we currently have equipped
+	Equipment[] currentEquipment;   // Предметы которые у нас сейчас в инвентаре
 	SkinnedMeshRenderer[] currentMeshes;
 
-	// Callback for when an item is equipped/unequipped
+	// Обратный вызов когда предмет экипирован или неэкипирован
 	public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
 	public OnEquipmentChanged onEquipmentChanged;
 
-	InventoryPl inventory;    // Reference to our inventory
+	InventoryPl inventory;    // наш иннвентарь
 
 	void Start()
 	{
-		inventory = InventoryPl.instance;     // Get a reference to our inventory
+		inventory = InventoryPl.instance;
 
-		// Initialize currentEquipment based on number of equipment slots
+		// Инициализируем currentEquipment на основе количества слотов для экипировки
 		int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
 		currentEquipment = new Equipment[numSlots];
 		currentMeshes = new SkinnedMeshRenderer[numSlots];
@@ -41,21 +41,21 @@ public class EquipmentManager : MonoBehaviour
 		EquipDefaultItems();
 	}
 
-	// Equip a new item
+	// экипируем новый предмет
 	public void Equip(Equipment newItem)
 	{
-		// Find out what slot the item fits in
+		// Находим в какос слоте находится предмет
 		int slotIndex = (int)newItem.equipSlot;
 		Equipment oldItem = Unequip(slotIndex);
 
-		// An item has been equipped so we trigger the callback
+		// Экипировали предмет значит делаем callback(обратный вызов)
 		if (onEquipmentChanged != null)
 		{
 			onEquipmentChanged.Invoke(newItem, oldItem);
 		}
 
 
-		// Insert the item into the slot
+		// Вставляем предмет в слот
 		currentEquipment[slotIndex] = newItem;
 		SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newItem.mesh);
 		newMesh.transform.parent = targetMesh.transform;
@@ -65,24 +65,24 @@ public class EquipmentManager : MonoBehaviour
 		currentMeshes[slotIndex] = newMesh;
 	}
 
-	// Unequip an item with a particular index
+	// Снимаем предмет с определенным индексом
 	public Equipment Unequip(int slotIndex)
 	{
-		// Only do this if an item is there
+		// проверка на наличие предмета
 		if (currentEquipment[slotIndex] != null)
 		{
 			if (currentMeshes[slotIndex] != null)
 			{
 				Destroy(currentMeshes[slotIndex].gameObject);
 			}
-			// Add the item to the inventory
+			// добавляем предмет в инвентарь
 			Equipment oldItem = currentEquipment[slotIndex];
 			inventory.AddItem(oldItem);
 
-			// Remove the item from the equipment array
+			// убираем из массива жкипированных вещей
 			currentEquipment[slotIndex] = null;
 
-			// Equipment has been removed so we trigger the callback
+			//тк предмет сняли опять callback
 			if (onEquipmentChanged != null)
 			{
 				onEquipmentChanged.Invoke(null, oldItem);
@@ -92,7 +92,7 @@ public class EquipmentManager : MonoBehaviour
 		return null;
 	}
 
-	// Unequip all items
+	// снимаем все предметы
 	public void UnequipAll()
 	{
 		for (int i = 0; i < currentEquipment.Length; i++)
@@ -103,7 +103,7 @@ public class EquipmentManager : MonoBehaviour
 	}
 
 	
-
+	//экипировка дефолтной одежды 
 	void EquipDefaultItems()
 	{
 		foreach (Equipment item in defaultItems)
@@ -114,7 +114,7 @@ public class EquipmentManager : MonoBehaviour
 
 	void Update()
 	{
-		// Unequip all items if we press U
+		// при нажатии U все снимается
 		if (Input.GetKeyDown(KeyCode.U))
 			UnequipAll();
 	}

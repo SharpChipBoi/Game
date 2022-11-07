@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GlobalControl.Instance.TransitionTarget != null)
             gameObject.transform.position = GlobalControl.Instance.TransitionTarget.position;
-        if (GlobalControl.Instance.IsSceneBeingLoaded)
+        if (GlobalControl.Instance.IsSceneBeingLoaded)//если мы выгружаем персонажа то передаем стаые значения
         {
             PlayerState.Instance.localPlayerData = GlobalControl.Instance.LocalCopyOfData;
 
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             isShowing = !isShowing;
-            inventoryUi.SetActive(isShowing);
+            inventoryUi.SetActive(isShowing); //показываем/убираем инвентарь
         }
 
         bool isWalking = animator.GetBool("isWalking");
@@ -94,13 +94,13 @@ public class PlayerMovement : MonoBehaviour
         
 
     }
-    void MovePlayer(float vertical, float horizontal, bool isWalking)
+    void MovePlayer(float vertical, float horizontal, bool isWalking)//функция позволяющая персонажу ходить
     {
         if (!active)
             return;
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        if (direction.magnitude >= 0.1f)
+        if (direction.magnitude >= 0.1f)//если если скорость больше 0.1 то мы подключаем анимацию и сглаживание вражения
         {
 
             animator.SetBool("isWalking", true);

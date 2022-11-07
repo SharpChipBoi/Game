@@ -6,7 +6,7 @@ public class ItemHeal : Interactable
 {
     public int healAmount;
 
-    public override void Interact()
+    public override void Interact()//когдв мы подняли предмет подключаем функцию HEal и лечим  указанное количество здоровья
     {
         base.Interact();
         Debug.Log("healed: " + healAmount);

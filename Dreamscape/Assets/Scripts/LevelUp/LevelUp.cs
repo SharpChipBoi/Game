@@ -43,7 +43,7 @@ public class LevelUp : MonoBehaviour
     {
 
         cam = Camera.main.transform;
-        foreach (GameObject c in GameObject.FindGameObjectsWithTag("HealthUi"))
+        foreach (GameObject c in GameObject.FindGameObjectsWithTag("HealthUi")) // находим объект с тэгом HealthUi чтобы подключить к таргету прифаб опыта
         {
                 ui = Instantiate(uiPrefab, c.transform).transform;
                 xpSliderFront = ui.GetChild(0).GetComponent<Image>();
@@ -60,20 +60,20 @@ public class LevelUp : MonoBehaviour
     void Update()
     {
         UpdateXpUI();
-        if (Input.GetKeyDown(KeyCode.Equals))
+        if (Input.GetKeyDown(KeyCode.Equals)) //тест на поднятие уровня
             GainExp(200);
         //if (currentXP > requiredXP)
         //    GainLevel();
         if (level != maxLevel)
         {
-            if (currentXP >= requiredXP)
+            if (currentXP >= requiredXP) // проверяем больше ли опыта чем нужно
             {
                 GainLevel();
             }
         }
         else
         {
-            currentXP = requiredXP;
+            currentXP = requiredXP; // если мы больше не можем поднять уровень 
             xpText.text = "MAX";
             xpSliderFront.fillAmount = currentXP / requiredXP;
             xpBack.fillAmount = currentXP / requiredXP;

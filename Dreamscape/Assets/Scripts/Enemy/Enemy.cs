@@ -52,7 +52,7 @@ public class Enemy : Interactable
 			ui.forward = -cam.forward;
 	}
 
-    // When we interact with the enemy: We attack it.
+    // Когда персонаж взаимодействует с врагом он его атакует
     public override void Interact()
 	{
 		print("Interact");
@@ -67,26 +67,26 @@ public class Enemy : Interactable
 	public void SetLevel()
     {
 		enemyLevel = Random.Range(1, playerLevel.level + 10);
-		//Scale Enemy XP ----- don't use this if you want to set enemy levels manually.
+		//получаем информацию о опыте врага, берем уровен рандомно
 		enemyXp = Mathf.Round(enemyLevel * 6 * XpMultiplier);
 
 
-		//Set Text Colour to Orange
+		//красим в оранжевый
 		if (enemyLevel == playerLevel.level)
 		{
 			text.text = "<color=orange>Level: " + enemyLevel + "</color> \n XP: " + enemyXp;
 		}
 
-		//This if statement is just used to update the Example UI to reflect the
-		//multiplier in the PlayerLevel Class.
+		
 		if (enemyLevel < playerLevel.level)
 		{
 			float multiplier = 1 + (playerLevel.level - enemyLevel) * 0.1f;
-			//Set Text Colour to green/
+			//красим в зеленый
 			text.text = "<color=green>Level: " + enemyLevel + "</color> \n XP: " + Mathf.Round(enemyXp * multiplier);
 			GetComponent<CharacterStats>().IncreaseDamage(stats.damage.GetValue());
 			GetComponent<CharacterStats>().IncreaseHealth(enemyLevel);
 		}
+		//красим в красный
 		text.text = "<color=red>Level: " + enemyLevel + "</color> \n XP: " + enemyXp;
 		GetComponent<CharacterStats>().IncreaseDamage(stats.damage.GetValue());
 		GetComponent<CharacterStats>().IncreaseHealth(enemyLevel);

@@ -15,7 +15,7 @@ public class EnemyRadius : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerManager.Instance.player.transform;
+        target = PlayerManager.Instance.player.transform;//собираем все необходимые данные
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
     }
@@ -23,7 +23,7 @@ public class EnemyRadius : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
+        float distance = Vector3.Distance(target.position, transform.position);//если входит в радиус, то враг начинает гнаться за персонажем
         if (distance <= lookRadius)
         {
             agent.speed = 3.5f;
@@ -33,14 +33,14 @@ public class EnemyRadius : MonoBehaviour
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
                 if(targetStats != null)
                 {
-                    combat.Attack(targetStats);
+                    combat.Attack(targetStats);//когда враг достиг персонажа атакует
                 }
                 FaceTarget();
             }
         }
     }
 
-    void FaceTarget()
+    void FaceTarget()//когда персонаж рядом враг за ним поворачивается
     {
         Vector3 diraction = (target.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(diraction.x, 0, diraction.z));
@@ -48,7 +48,7 @@ public class EnemyRadius : MonoBehaviour
     }
 
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()//рисуем гизмос
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);

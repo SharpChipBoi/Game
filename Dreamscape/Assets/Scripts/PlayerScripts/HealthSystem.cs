@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class HealthSystem
+//Этот скрипт не используется
+
+public class HealthSystem //класс системы здоровья
 {
     public event EventHandler OnHealthChanged;
 
@@ -11,18 +13,18 @@ public class HealthSystem
     private int healthMax;
     public bool isGameOver = false;
 
-    public HealthSystem(int healthMax)
+    public HealthSystem(int healthMax) // создаем максимальное здоровье
     {
         this.healthMax = healthMax;
         health = healthMax;
     }
 
-    public int GetHealth()
+    public int GetHealth()//функция возвращает здоровье
     {
         return health;
     }
 
-    public float GetHealthPercent()
+    public float GetHealthPercent()//возвращает процент здоровья
     {
         return (float)health / healthMax;
     }

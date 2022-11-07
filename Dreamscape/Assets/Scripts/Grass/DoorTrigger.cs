@@ -11,14 +11,14 @@ public class DoorTrigger : MonoBehaviour
     public bool lucyDoor = false;
     // Start is called before the first frame update
 
-    private void Update()
+    private void Update()//если у нас нажата кнопка НЕ играком, то открываем дверь
     {
         if (isOpen && isPressed)
         {
             door.transform.Translate(Vector3.up * Time.deltaTime * 5);
 
         }
-        if (door.transform.position.y > 4 && isPressed)
+        if (door.transform.position.y > 4 && isPressed)//проверка на то чтобы дверь не улетела
         {
             isOpen = false;
             lucyDoor = true;

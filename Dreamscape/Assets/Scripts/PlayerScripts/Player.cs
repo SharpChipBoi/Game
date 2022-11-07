@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 	}
 
 	#endregion
-
+	//Небольшие данные об игроке
 	void Start()
 	{
 		playerStats.OnHealthReachedZero += Die;
@@ -27,6 +27,6 @@ public class Player : MonoBehaviour
 
 	void Die()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//смерть игрока
 	}
 }

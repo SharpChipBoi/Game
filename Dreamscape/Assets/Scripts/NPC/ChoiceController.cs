@@ -11,6 +11,7 @@ public class ChoiceController : MonoBehaviour
     public Choice choice;
     public ConversationChangeEvent conversationChangeEvent;
 
+    //если у нас есть вопрос, то пы создаем соответсвубщие кнопки(тут просто задается расстоаяние из родственная связь и размер)
     public static ChoiceController AddChoiceButton(Button choiceButtonTemplate, Choice choice, int index)
     {
         int buttonSpacing = -100;
@@ -27,7 +28,7 @@ public class ChoiceController : MonoBehaviour
         return choiceController;
     }
 
-    private void Start()
+    private void Start()//Если у нас есть вопрос то мы подключаем кнопки
     {
         if (conversationChangeEvent == null)
             conversationChangeEvent = new ConversationChangeEvent();
@@ -35,7 +36,7 @@ public class ChoiceController : MonoBehaviour
         GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
     }
 
-    public void MakeChoice()
+    public void MakeChoice()//Меняем диалог в зависимости от выбора
     {
         conversationChangeEvent.Invoke(choice.conversation);
     }

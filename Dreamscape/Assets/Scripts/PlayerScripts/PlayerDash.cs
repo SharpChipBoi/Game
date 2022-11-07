@@ -23,7 +23,7 @@ public class PlayerDash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(dashCD <= 0)
+        if(dashCD <= 0)//если кулдаун прошел мы можен занаво ускориться 
         { 
 
             if (Input.GetButtonDown("Dash"))
@@ -38,7 +38,7 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
-    IEnumerator Dash()
+    IEnumerator Dash()//проверка на кулдаун
     {
         float startTime = Time.time;
 

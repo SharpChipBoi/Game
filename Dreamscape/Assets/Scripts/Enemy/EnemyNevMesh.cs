@@ -6,10 +6,9 @@ using UnityEngine.AI;
 public class EnemyNevMesh : MonoBehaviour
 {
     public NavMeshAgent agent;
-    public float range; //radius of sphere
+    public float range; //радиус сферы
 
-    public Transform centrePoint; //centre of the area the agent wants to move around in
-    //instead of centrePoint you can set it as the transform of the agent if you don't care about a specific area
+    public Transform centrePoint; //центр перемещения агента
 
     void Start()
     {
@@ -19,13 +18,12 @@ public class EnemyNevMesh : MonoBehaviour
 
     void Update()
     {
-        if (agent.remainingDistance <= agent.stoppingDistance) //done with path
+        if (agent.remainingDistance <= agent.stoppingDistance) //когда завершил путь
         {
             Vector3 point;
-            if (RandomPoint(centrePoint.position, range, out point)) //pass in our centre point and radius of area
+            if (RandomPoint(centrePoint.position, range, out point)) //вводим центральную точку и радиус области
             {
-                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); // can see with gizmos
-                agent.SetDestination(point);
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); //рисуем гизмосом
             }
         }
 
@@ -33,12 +31,11 @@ public class EnemyNevMesh : MonoBehaviour
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
 
-        Vector3 randomPoint = center + Random.insideUnitSphere * range; //random point in a sphere 
+        Vector3 randomPoint = center + Random.insideUnitSphere * range; //радномная точка в сфере
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas)) //documentation: https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
+        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
         {
-            //the 1.0f is the max distance from the random point to a point on the navmesh, might want to increase if range is big
-            //or add a for loop like in the documentation
+            //1.0f - это максимальное расстояние от случайной точки до точки на навмеше
             result = hit.position;
             return true;
         }

@@ -22,7 +22,7 @@ public class PlayerState : MonoBehaviour
 		GlobalControl.Instance.Player = gameObject;
 	}
 
-	//At start, load data from GlobalControl.
+	//В старте загружаем локальную дату игрока из GlobalControl.
 	void Start()
 	{
 		localPlayerData = GlobalControl.Instance.savedPlayerData;

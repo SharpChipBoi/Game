@@ -12,7 +12,7 @@ public class QuestionController : MonoBehaviour
 
     private List<ChoiceController> choiceControllers = new List<ChoiceController>();
 
-    public void Change(Question _question)
+    public void Change(Question _question)//меняем диалог и запускаем его
     {
         RemoveChoices();
         question = _question;
@@ -20,13 +20,13 @@ public class QuestionController : MonoBehaviour
         Initialize();
     }
 
-    public void Hide(Conversation conversation)
+    public void Hide(Conversation conversation)//прячем выбор
     {
         RemoveChoices();
         gameObject.SetActive(false);
     }
 
-    private void RemoveChoices()
+    private void RemoveChoices()//удаляем выбор кнопок
     {
         foreach (ChoiceController c in choiceControllers)
             Destroy(c.gameObject);
@@ -36,7 +36,7 @@ public class QuestionController : MonoBehaviour
 
     private void Start() { }
 
-    private void Initialize()
+    private void Initialize()//создаем вопрос и кнопки
     {
         //questionText.text = question.text;
 

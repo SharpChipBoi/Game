@@ -12,7 +12,7 @@ public class ItemPickUp : Interactable
         PickUp();
     }
 
-    void PickUp()
+    void PickUp()//когда мы подняли предмет, его добавляем в инвентарь
     {        
         bool picked = InventoryPl.instance.AddItem(item);
         if(picked)

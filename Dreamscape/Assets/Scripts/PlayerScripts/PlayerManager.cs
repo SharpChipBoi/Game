@@ -21,7 +21,6 @@ public class PlayerManager : MonoBehaviour
 	public GameObject player;
 	
 
-	//TUTORIAL
 	//public PlayerStats localPlayerData = new PlayerStats();
 
 	void Start()
