@@ -586,13 +586,13 @@ GameObject:
   - component: {fileID: 2274076785749912301}
   - component: {fileID: 2274076785749912296}
   - component: {fileID: 2274076785749912299}
-  - component: {fileID: 2274076785749912298}
   - component: {fileID: 2617630044299814308}
   - component: {fileID: 2858510363624469947}
   - component: {fileID: 2038587115708245356}
   - component: {fileID: 7084732687682551416}
   - component: {fileID: 3113570665047638636}
   - component: {fileID: 5062643993602335351}
+  - component: {fileID: 8589154348094823965}
   m_Layer: 12
   m_Name: ThirdPersonPlayer 1
   m_TagString: Player
@@ -697,21 +697,6 @@ MonoBehaviour:
   dashTime: 0.25
   dashCD: 0.1
   animator: {fileID: 6688820324904016047}
---- !u!114 &2274076785749912298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2274076785749912300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae110d2973e9dc247a1eea6e929591af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetGroup: {fileID: 0}
-  interactButton: {fileID: 2274076786107840204}
-  dialogueDof: {fileID: 0}
 --- !u!114 &2617630044299814308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,7 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b09a27f5d4e7f43880b965fefd9821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xp: 0
   maxHealth: 100
   damage:
     baseVal: 0
@@ -778,6 +762,7 @@ MonoBehaviour:
   xpSliderFront: {fileID: 336413810883038681}
   xpBack: {fileID: 336413810572343169}
   level: 1
+  maxLevel: 99
   additionMultiplier: 300
   powerMultiplier: 2
   divisionMultiplier: 14
@@ -808,6 +793,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushForce: 1
+--- !u!114 &8589154348094823965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274076785749912300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a10b5248eeb2d84daafe225b59fd753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPosition: {fileID: 2274076785749912294}
+  localPlayerData:
+    SceneID: 0
+    PositionX: 0
+    PositionY: 0
+    PositionZ: 0
+    HP: 0
+    XP: 0
 --- !u!1 &2274076785874882327
 GameObject:
   m_ObjectHideFlags: 0

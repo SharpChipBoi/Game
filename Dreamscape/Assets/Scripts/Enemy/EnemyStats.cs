@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
-    PlayerManager playerManager;
-
-    void Start()
-    {
-        playerManager = PlayerManager.instance;
-    }
 
     public override void Die()
     {
         
         base.Die();
-        playerManager.player.GetComponent<LevelUp>().GainExp(xp);
-        Debug.Log("XP gained: " + xp);
+
+        PlayerManager.Instance.player.GetComponent<LevelUp>().GainExp(Enemy.Instance.enemyXp);
+        PlayerManager.Instance.player.GetComponent<LevelUp>().UpdateXpUI();
+        Debug.Log("XP gained: " + Enemy.Instance.enemyXp);
         Destroy(gameObject);
     }
 }

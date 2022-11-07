@@ -7,6 +7,8 @@ using TMPro;
 [RequireComponent(typeof(CharacterStats))]
 public class LevelUp : MonoBehaviour
 {
+
+
     public GameObject uiPrefab;
     public Transform target;
     float visibleTime = 5;
@@ -22,6 +24,7 @@ public class LevelUp : MonoBehaviour
 
     public int level;
     private float currentXP = 0;
+    public float maxLevel = 99;
     private float requiredXP;
 
     private float lerpTimer;
@@ -40,15 +43,12 @@ public class LevelUp : MonoBehaviour
     {
 
         cam = Camera.main.transform;
-        foreach (Canvas c in FindObjectsOfType<Canvas>())
+        foreach (GameObject c in GameObject.FindGameObjectsWithTag("HealthUi"))
         {
-            if (c.renderMode == RenderMode.WorldSpace)
-            {
                 ui = Instantiate(uiPrefab, c.transform).transform;
                 xpSliderFront = ui.GetChild(0).GetComponent<Image>();
-                ui.gameObject.SetActive(true);
+                ui.gameObject.SetActive(false);
                 break;
-            }
         }
         xpSliderFront.fillAmount = currentXP / requiredXP;
         xpBack.fillAmount = currentXP / requiredXP;
@@ -62,13 +62,27 @@ public class LevelUp : MonoBehaviour
         UpdateXpUI();
         if (Input.GetKeyDown(KeyCode.Equals))
             GainExp(200);
-        if (currentXP > requiredXP)
-            GainLevel();
+        //if (currentXP > requiredXP)
+        //    GainLevel();
+        if (level != maxLevel)
+        {
+            if (currentXP >= requiredXP)
+            {
+                GainLevel();
+            }
+        }
+        else
+        {
+            currentXP = requiredXP;
+            xpText.text = "MAX";
+            xpSliderFront.fillAmount = currentXP / requiredXP;
+            xpBack.fillAmount = currentXP / requiredXP;
+        }
     }
 
 
 
-    void UpdateXpUI()
+    public void UpdateXpUI() //Обновляем состояние ЮИ
     {
         float xpFraction = currentXP / requiredXP;
         float xpFront = xpSliderFront.fillAmount;
@@ -87,14 +101,14 @@ public class LevelUp : MonoBehaviour
     }
 
 
-    public void GainExp(float xpGained)
+    public void GainExp(float xpGained) //Прибовляем количество опыта к существующему
     {
         currentXP += xpGained;
         lerpTimer = 0f;
         delayTimer = 0f;
     }
 
-    public void GainXpScalable(float xpGained, int passedLevel)
+    public void GainXpScalable(float xpGained, int passedLevel) //Если после поднятия уровня остался опыт, то мы его добавляем к новуму уровню
     {
         if (passedLevel < level)
         {
@@ -110,7 +124,7 @@ public class LevelUp : MonoBehaviour
     }
 
 
-    public void GainLevel()
+    public void GainLevel() //повышение уровня, с улучшением здоровья и урона
     {
         level++;
         xpSliderFront.fillAmount = 0f;
@@ -122,7 +136,7 @@ public class LevelUp : MonoBehaviour
         levelText.text = "Level: " + level;
     }
 
-    private int CalculateRequiredXp()
+    private int CalculateRequiredXp() // В зависимости от базового здоровья высчитываем по формуле нужное количество опыта для поднятия уровня
     {
         int solveForRequiredXp = 0;
         for(int levelCycle = 1; levelCycle <= level; levelCycle++)
@@ -132,7 +146,7 @@ public class LevelUp : MonoBehaviour
         return solveForRequiredXp / 4;
     }
 
-    void LateUpdate()
+    void LateUpdate() //показываем полосу опыта в камеру
     {
         if (ui != null)
         {

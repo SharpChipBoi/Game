@@ -22,7 +22,7 @@ public class AchievementManager : MonoBehaviour
 
     public Sprite unlockedSprite;
 
-    private static AchievementManager instance; // создаем сингалтон чтобы получить доступ к классу и к его дате
+    private static AchievementManager instance; // создаем сингалтон чтобы получить доступ к классу и к его методам
 
     public static AchievementManager Instance
     {
@@ -39,7 +39,7 @@ public class AchievementManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.DeleteAll(); // очистить дату от сохраненной 
+        //PlayerPrefs.DeleteAll(); // очистить дату от сохраненной 
         activeButton = GameObject.Find("GeneralBtn").GetComponent<AchievementButton>();
         CreateAchievement("General", "Press W", "Press W to unlock this achievement", 0);
         CreateAchievement("General", "Press A", "Press A to unlock this achievement", 0);

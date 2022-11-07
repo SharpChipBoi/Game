@@ -8,8 +8,6 @@ using System;
 public class CharacterStats: MonoBehaviour
 {
 
-    public float xp;
-
     public int maxHealth;
     public int currentHealth { get; private set; }
 
@@ -48,6 +46,10 @@ public class CharacterStats: MonoBehaviour
     {
         currentHealth += healAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (OnHealthChanged != null)
+        {
+            OnHealthChanged(maxHealth, currentHealth);
+        }
     }
 
     public virtual void Die()
@@ -59,6 +61,10 @@ public class CharacterStats: MonoBehaviour
     {
         maxHealth += (int)((currentHealth * 0.01f) * ((100 - level) * 0.1f));
         currentHealth = maxHealth;
+        if (OnHealthChanged != null)
+        {
+            OnHealthChanged(maxHealth, currentHealth);
+        }
     }
     public void IncreaseDamage(int level)
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlobalControl : MonoBehaviour
+public class GlobalControl1 : MonoBehaviour
 {
-    public static GlobalControl instance;
+    public static GlobalControl1 instance;
 
     public PlayerStats savedPlayerData = new PlayerStats();
     //Copy or our player, if we ever need it game-wide

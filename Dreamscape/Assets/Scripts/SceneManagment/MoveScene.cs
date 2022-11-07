@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MoveScene : MonoBehaviour
 {
     [SerializeField]
+    PlayerMovement player;
     private string loadRoom;
     public GameObject interactButton;
     public bool nextDoor;
-    //To which level are we going to?
-    //public int TargetedSceneIndex;
 
-    //TargetPlayerLocation will be saved in Global, and then set to the player
-    //after the scene transition, so the player is in correct spot in the new scene.
-    //public Transform TargetPlayerLocation;
+
 
     void Start()
     {
+        player = GetComponent<PlayerMovement>();
         interactButton.SetActive(false);
     }
 
@@ -25,7 +24,8 @@ public class MoveScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && nextDoor)
         {
-            PlayerManager.instance.SavePlayer();
+            SavePlayer();
+            //PlayerManager.Instance.SavePlayer();
             SceneManager.LoadScene(loadRoom);
         }
     }
@@ -49,4 +49,21 @@ public class MoveScene : MonoBehaviour
             interactButton.SetActive(false);
         }
     }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(player); 
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
+    }
+
 }

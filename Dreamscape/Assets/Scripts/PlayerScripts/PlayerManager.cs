@@ -3,33 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
 public class PlayerManager : MonoBehaviour
 {
 	public static PlayerManager instance;
-
-	public Transform playerPosition;
+	public static PlayerManager Instance
+	{
+		get
+		{
+			if (instance == null)
+			{
+				instance = GameObject.FindObjectOfType<PlayerManager>(); //находит ачивмент менеджер и  пихает его в instance чьлбы мы могли использовать его класс
+			}
+			return PlayerManager.instance;
+		}
+	}
 	public GameObject player;
+	
 
 	//TUTORIAL
-	public PlayerStats localPlayerData = new PlayerStats();
+	//public PlayerStats localPlayerData = new PlayerStats();
 
-	void Awake()
-	{
-		if (instance == null)
-			instance = this;
-
-		if (instance != this)
-			Destroy(gameObject);
-
-		//GlobalControl.instance.Player = gameObject;
-	}
-	public void SavePlayer()
-	{
-		GlobalControl.instance.savedPlayerData = localPlayerData;
-	}
 	void Start()
 	{
-		localPlayerData = GlobalControl.instance.savedPlayerData;
+		//localPlayerData = GlobalControl.instance.savedPlayerData;
 	}
 
 	public void KillPlayer()

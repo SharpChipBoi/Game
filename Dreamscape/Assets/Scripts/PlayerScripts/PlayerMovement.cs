@@ -1,9 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+    public static PlayerMovement Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = GameObject.FindObjectOfType<PlayerMovement>(); //находит ачивмент менеджер и  пихает его в instance чьлбы мы могли использовать его класс
+            }
+            return PlayerMovement.instance;
+        }
+    }
+
     public CharacterController controller;
 
     public float speed = 6f;
@@ -37,11 +51,22 @@ public class PlayerMovement : MonoBehaviour
     private bool isShowing;
     GameObject inventoryUi;
 
-    //private void Start()
-    //{
-    //    inventory = new Inventory();
-    //    uiInventory.SetInventory(inventory);
-    //}
+    private void Start()
+    {
+        if (GlobalControl.Instance.TransitionTarget != null)
+            gameObject.transform.position = GlobalControl.Instance.TransitionTarget.position;
+        if (GlobalControl.Instance.IsSceneBeingLoaded)
+        {
+            PlayerState.Instance.localPlayerData = GlobalControl.Instance.LocalCopyOfData;
+
+            transform.position = new Vector3(
+                            GlobalControl.Instance.LocalCopyOfData.PositionX,
+                            GlobalControl.Instance.LocalCopyOfData.PositionY,
+                            GlobalControl.Instance.LocalCopyOfData.PositionZ + 0.1f);
+
+            GlobalControl.Instance.IsSceneBeingLoaded = false;
+        }
+    }
 
     // Update is called once per frame
     void Update()

@@ -119,4 +119,9 @@ public class EquipmentManager : MonoBehaviour
 			UnequipAll();
 	}
 
+	public void SaveEquipment()
+    {
+
+    }
+
 }

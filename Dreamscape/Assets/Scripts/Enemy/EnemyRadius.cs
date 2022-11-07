@@ -15,7 +15,7 @@ public class EnemyRadius : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerManager.instance.player.transform;
+        target = PlayerManager.Instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         combat = GetComponent<CharacterCombat>();
     }
@@ -24,7 +24,6 @@ public class EnemyRadius : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
-        agent.speed = 1.5f;
         if (distance <= lookRadius)
         {
             agent.speed = 3.5f;

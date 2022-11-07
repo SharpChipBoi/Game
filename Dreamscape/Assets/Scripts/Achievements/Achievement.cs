@@ -51,9 +51,9 @@ public class Achievement
         set { child = value; }
     }
 
-    public Achievement(string name, string description, int spriteIndex, GameObject achievementRef)
+    public Achievement(string name, string description, int spriteIndex, GameObject achievementRef)//Данные об ачивке
     {
-        this.name = name; // берем верхний нейм и приравниваем переданному
+        this.name = name; // берем основное название и приравниваем переданному
         this.description = description;
         this.unlocked = false;
         this.spriteIndex = spriteIndex;

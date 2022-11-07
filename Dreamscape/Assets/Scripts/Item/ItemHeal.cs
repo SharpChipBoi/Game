@@ -6,20 +6,12 @@ public class ItemHeal : Interactable
 {
     public int healAmount;
 
-    PlayerManager playerManager;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        playerManager = PlayerManager.instance;
-    }
-
-
     public override void Interact()
     {
         base.Interact();
-        Debug.Log("healed: " + 20);
-        playerManager.player.GetComponent<CharacterStats>().Heal(healAmount);
+        Debug.Log("healed: " + healAmount);
+        PlayerManager.Instance.player.GetComponent<CharacterStats>().Heal(healAmount);
+        Destroy(gameObject);
     }
 
 }
