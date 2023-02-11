@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fceb77e41fea01244a4ccbfdbbccfef2, type: 3}
+  m_Name: StarOutfit
+  m_EditorClassIdentifier: 
+  name: StarOutfit
+  icon: {fileID: 21300000, guid: ec30bc22d57bd8a42806fbd57498a8e4, type: 3}
+  isDefaultItem: 0
+  isHealing: 0
+  isGreyKey: 0
+  isGoldKey: 0
+  itemPrefab: {fileID: 1235908724247734070, guid: 2d0c0144779350149a79ed1762a48965,
+    type: 3}
+  itemMaterial: {fileID: 2100000, guid: 833df98a6aa047e40b999cf27600117b, type: 2}
+  ind: 1
+  material: {fileID: 2100000, guid: 833df98a6aa047e40b999cf27600117b, type: 2}

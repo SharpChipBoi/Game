@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30307dfc0e606624ebc41364ff4e3da8, type: 3}
+  m_Name: GreyKey
+  m_EditorClassIdentifier: 
+  name: GreyKey
+  icon: {fileID: 21300000, guid: c4cac6f55fc58cb4490a327e993dd3c1, type: 3}
+  isDefaultItem: 0
+  isHealing: 0
+  isGreyKey: 1
+  isGoldKey: 0
+  itemPrefab: {fileID: 5191709785787930345, guid: fad4d67a7eac2ed47a32de2dec8b9a24,
+    type: 3}

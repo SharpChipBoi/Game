@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6504ba96b861141a2bed336fe19f32, type: 3}
+  m_Name: Dagger
+  m_EditorClassIdentifier: 
+  name: Dagger
+  icon: {fileID: 21300000, guid: 0c042b0f7bf015049ae2b5e81500e6d2, type: 3}
+  isDefaultItem: 0
+  isHealing: 0
+  isGreyKey: 0
+  isGoldKey: 0
+  itemPrefab: {fileID: 2124248970411326450, guid: ec64636bad995da479ddacd4dd0795fb,
+    type: 3}
+  itemMaterial: {fileID: 0}
+  equipSlot: 2
+  mesh: {fileID: 5104833679377894610, guid: 9d8968ac582754043b6697f592094bac, type: 3}
+  armorModifier: 4
+  damageModifier: 12

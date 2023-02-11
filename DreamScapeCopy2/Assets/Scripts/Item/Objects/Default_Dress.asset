@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6504ba96b861141a2bed336fe19f32, type: 3}
+  m_Name: Default_Dress
+  m_EditorClassIdentifier: 
+  name: Purple hat
+  icon: {fileID: 0}
+  isDefaultItem: 1
+  isHealing: 0
+  isGreyKey: 0
+  isGoldKey: 0
+  itemPrefab: {fileID: 0}
+  itemMaterial: {fileID: 2100000, guid: c2a4793ed1d26a441a147d33f6885728, type: 2}
+  index: 5
+  equipSlot: 1
+  mesh: {fileID: 0}
+  armorModifier: 0
+  damageModifier: 0

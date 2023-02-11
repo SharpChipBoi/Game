@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a24379d799f0248b7fe1cc43e19db3, type: 3}
+  m_Name: SockQuestion
+  m_EditorClassIdentifier: Assembly-CSharp::Question
+  choices:
+  - text: ...
+    conversation: {fileID: 11400000, guid: 0938619e6c0236040b5c5ff1617575d4, type: 2}
+  - text: Who are you?
+    conversation: {fileID: 11400000, guid: dbbbb2a0262d04246ac83b74038e87f7, type: 2}

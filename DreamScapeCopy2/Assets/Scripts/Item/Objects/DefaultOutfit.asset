@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fceb77e41fea01244a4ccbfdbbccfef2, type: 3}
+  m_Name: DefaultOutfit
+  m_EditorClassIdentifier: 
+  name: Default Outfit
+  icon: {fileID: 0}
+  isDefaultItem: 1
+  isHealing: 0
+  isGreyKey: 0
+  isGoldKey: 0
+  itemPrefab: {fileID: 0}
+  itemMaterial: {fileID: 2100000, guid: c2a4793ed1d26a441a147d33f6885728, type: 2}
+  ind: 0
+  material: {fileID: 0}

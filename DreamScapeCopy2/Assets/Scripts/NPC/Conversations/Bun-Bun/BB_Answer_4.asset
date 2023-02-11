@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b68ba6f53e2c34cada6bbaed3dc1da, type: 3}
+  m_Name: BB_Answer_4
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: 84cf4f23bf5e0ad4796e87102efe206c, type: 2}
+  speakerRight: {fileID: 11400000, guid: e415b3b6e6e5a304599948cd24766365, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: 84cf4f23bf5e0ad4796e87102efe206c, type: 2}
+    text: Okey-dokey!
+    mood: 3
+  - character: {fileID: 11400000, guid: 84cf4f23bf5e0ad4796e87102efe206c, type: 2}
+    text: 'If you wan''t to leave just jump '
+    mood: 0
+  question: {fileID: 0}
+  nextConversation: {fileID: 0}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53a24379d799f0248b7fe1cc43e19db3, type: 3}
+  m_Name: BB_question_1
+  m_EditorClassIdentifier: 
+  choices:
+  - text: Who are you?
+    conversation: {fileID: 11400000, guid: ce35cac8097f52245a9bbb78045989d4, type: 2}
+  - text: Where am I?
+    conversation: {fileID: 11400000, guid: e288a5d910e90ff4b89597ef5f2008dd, type: 2}
+  - text: Nevermind
+    conversation: {fileID: 11400000, guid: 9c5e25426f2f3f547bb0254c741455c2, type: 2}
